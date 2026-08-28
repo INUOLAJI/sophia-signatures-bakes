@@ -8,6 +8,7 @@ import Order from './pages/Order';
 import FlavorDetails from './pages/FlavorDetails';
 import CustomOrder from './pages/CustomOrder';
 import { CartProvider, useCart } from './context/CartContext';
+import { BsCart3 } from 'react-icons/bs';
 
 function PageLoaderWrapper({ children }) {
   const [loading, setLoading] = useState(true);
@@ -45,11 +46,7 @@ function FloatingCartButton() {
       style={{ zIndex: 9990, transition: 'all 0.3s ease' }}
     >
       <div className="position-relative d-flex align-items-center justify-content-center">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="8" cy="21" r="1"/>
-          <circle cx="19" cy="21" r="1"/>
-          <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
-        </svg>
+        <BsCart3 size={24} />
         <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light">
           {totalItemCount}
         </span>

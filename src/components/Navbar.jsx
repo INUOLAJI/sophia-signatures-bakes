@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Navbar, Nav, Container, Button, Badge } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { BsCart3 } from 'react-icons/bs';
 
 export default function NavigationBar() {
   const [expanded, setExpanded] = useState(false);
@@ -49,11 +50,7 @@ export default function NavigationBar() {
             className="btn btn-golden rounded-pill px-3 py-1 d-flex align-items-center gap-2 position-relative"
             onClick={handleNavClick}
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="8" cy="21" r="1"/>
-              <circle cx="19" cy="21" r="1"/>
-              <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
-            </svg>
+            <BsCart3 size={20} />
             <span className="badge rounded-pill bg-white text-golden-dark fw-bold">
               {totalItemCount}
             </span>
@@ -105,11 +102,7 @@ export default function NavigationBar() {
               className="btn-golden rounded-pill px-4 ms-lg-2 d-none d-lg-flex align-items-center gap-2 position-relative shadow-sm"
               onClick={handleNavClick}
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="8" cy="21" r="1"/>
-                <circle cx="19" cy="21" r="1"/>
-                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
-              </svg>
+              <BsCart3 size={20} />
               <span>Cart</span>
               <span className="badge rounded-pill bg-white text-golden-dark fw-bold ms-1" style={{ fontSize: '0.85rem' }}>
                 {totalItemCount}
