@@ -91,7 +91,7 @@ const PASTRIES_AND_DESSERTS = [
     minOrderNote: "Min. 4 pieces",
     minOrder: 4,
     category: "Pastries",
-    image: "/meatpie.jpeg"
+    image: "/chickenpie.jpeg"
   },
   {
     name: "Egg Roll",
