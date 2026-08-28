@@ -577,6 +577,7 @@ export default function CustomOrder() {
                 </Row>
               </div>
             </Card>
+            </motion.div>
 
             {/* Step 3: Flavors & Fillings */}
             <Card className="border-0 shadow-sm rounded-4 p-4 mb-4 bg-white border border-golden">
