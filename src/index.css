@@ -1,0 +1,153 @@
+:root {
+  --golden-primary: #8C531B;
+  --golden-dark: #64380E;
+  --golden-hover: #754313;
+  --golden-accent: #C58B35;
+  --golden-amber: #D89B42;
+  --golden-light: #FDF9F3;
+  --golden-subtle: #F5EAE0;
+  --golden-border: #E8D7C5;
+  --golden-text-dark: #2C1A0E;
+  --golden-text-muted: #725D4F;
+  --bg-cream: #FAF6F0;
+}
+
+body {
+  background-color: var(--bg-cream);
+  color: var(--golden-text-dark);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom Golden Brown Utility Classes */
+.text-golden {
+  color: var(--golden-primary) !important;
+}
+
+.text-golden-dark {
+  color: var(--golden-dark) !important;
+}
+
+.text-golden-accent {
+  color: var(--golden-accent) !important;
+}
+
+.bg-golden-primary {
+  background-color: var(--golden-primary) !important;
+  color: #ffffff !important;
+}
+
+.bg-golden-light {
+  background-color: var(--golden-light) !important;
+}
+
+.bg-golden-subtle {
+  background-color: var(--golden-subtle) !important;
+}
+
+.border-golden {
+  border-color: var(--golden-border) !important;
+}
+
+/* Golden Buttons */
+.btn-golden {
+  background: linear-gradient(135deg, #945B20 0%, #784513 100%);
+  color: #ffffff !important;
+  border: none;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(120, 69, 19, 0.25);
+  transition: all 0.25s ease-in-out;
+}
+
+.btn-golden:hover, .btn-golden:focus {
+  background: linear-gradient(135deg, #7D4814 0%, #5E340B 100%);
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(120, 69, 19, 0.35);
+}
+
+.btn-outline-golden {
+  background-color: transparent;
+  color: var(--golden-primary) !important;
+  border: 2px solid var(--golden-primary);
+  font-weight: 600;
+  transition: all 0.25s ease-in-out;
+}
+
+.btn-outline-golden:hover, .btn-outline-golden:focus {
+  background-color: var(--golden-primary);
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(140, 83, 27, 0.2);
+}
+
+/* Badges */
+.badge-golden {
+  background-color: var(--golden-subtle) !important;
+  color: var(--golden-dark) !important;
+  border: 1px solid var(--golden-border);
+  font-weight: 600;
+}
+
+.badge-gold-accent {
+  background-color: #F8E7C8 !important;
+  color: #7B4B1C !important;
+  border: 1px solid #E4C89A;
+  font-weight: 600;
+}
+
+/* Card hover and smooth elevation */
+.card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-color: var(--golden-border) !important;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(100, 56, 14, 0.12) !important;
+}
+
+/* Notice & Alert styling */
+.notice-box {
+  background: linear-gradient(135deg, #FFF8ED 0%, #FBF0DF 100%);
+  border: 1.5px dashed var(--golden-accent);
+  border-radius: 1rem;
+}
+
+.discount-ribbon {
+  background: linear-gradient(135deg, #7C4512 0%, #9F6224 100%);
+  color: #FFFFFF;
+  border-radius: 1rem;
+}
+
+/* Form focus golden ring */
+.form-control:focus, .form-select:focus {
+  border-color: var(--golden-accent) !important;
+  box-shadow: 0 0 0 0.25rem rgba(197, 139, 53, 0.25) !important;
+}
+
+/* Navigation link active underline */
+.nav-link.active-golden {
+  color: var(--golden-primary) !important;
+  font-weight: 700;
+}
+
+/* Override default Bootstrap danger to Golden Brown if any left */
+.bg-danger {
+  background-color: var(--golden-primary) !important;
+}
+
+.text-danger {
+  color: var(--golden-primary) !important;
+}
+
+.btn-danger {
+  background-color: var(--golden-primary) !important;
+  border-color: var(--golden-dark) !important;
+}
+
+.btn-danger:hover {
+  background-color: var(--golden-dark) !important;
+  border-color: var(--golden-dark) !important;
+}
