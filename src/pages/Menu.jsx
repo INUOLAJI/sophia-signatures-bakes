@@ -19,7 +19,7 @@ const SIGNATURE_FLAVORS = [
     name: 'Red Velvet',
     desc: 'Silky, Moist & Velvety Red Velvet',
     badge: 'Customer Favorite',
-    image: 'https://images.unsplash.com/photo-1586788680434-30d324b2d46f?auto=format&fit=crop&q=80&w=600'
+    image: 'https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?auto=format&fit=crop&q=80&w=600'
   },
   {
     name: 'Strawberry Bliss',
@@ -32,12 +32,12 @@ const SIGNATURE_FLAVORS = [
 const CAKE_PRICING = [
   { size: "4' inches (Bento Takeaway)", price: "₦10,000", servings: "1 - 2 portions", tag: "Cute Bento", image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=600" },
   { size: "4' inches (Board)", price: "₦12,000", servings: "2 - 3 portions", tag: "Mini Board", image: "https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?auto=format&fit=crop&q=80&w=600" },
-  { size: "6 inches", price: "₦14,000", servings: "4 - 6 portions", tag: "Popular", image: "https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&q=80&w=600" },
+  { size: "6 inches", price: "₦14,000", servings: "4 - 6 portions", tag: "Popular", image: "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&q=80&w=600" },
   { size: "7 inches", price: "₦18,000", servings: "8 - 10 portions", tag: "Standard Party", image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&q=80&w=600" },
-  { size: "8 inches", price: "₦22,000", servings: "12 - 15 portions", tag: "Best Seller", image: "https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&q=80&w=600" },
-  { size: "9 inches", price: "₦28,000", servings: "18 - 22 portions", tag: "Family Celebration", image: "https://images.unsplash.com/photo-1542826438-bd32f43d626f?auto=format&fit=crop&q=80&w=600" },
-  { size: "10 inches", price: "₦35,000", servings: "25 - 30 portions", tag: "Large Gathering", image: "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&q=80&w=600" },
-  { size: "11 inches", price: "₦42,000", servings: "35 - 40 portions", tag: "Grand Party", image: "https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&q=80&w=600" },
+  { size: "8 inches", price: "₦22,000", servings: "12 - 15 portions", tag: "Best Seller", image: "https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&q=80&w=600" },
+  { size: "9 inches", price: "₦28,000", servings: "18 - 22 portions", tag: "Family Celebration", image: "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&q=80&w=600" },
+  { size: "10 inches", price: "₦35,000", servings: "25 - 30 portions", tag: "Large Gathering", image: "https://images.unsplash.com/photo-1506459225024-1428097a7e18?auto=format&fit=crop&q=80&w=600" },
+  { size: "11 inches", price: "₦42,000", servings: "35 - 40 portions", tag: "Grand Party", image: "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&q=80&w=600" },
   { size: "12 inches", price: "₦50,000", servings: "45 - 50+ portions", tag: "Showstopper", image: "https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&q=80&w=600" },
 ];
 
@@ -71,7 +71,7 @@ const PASTRIES_AND_DESSERTS = [
     price: "₦1,200",
     desc: "Flaky golden buttery crust loaded with richly seasoned minced beef and potatoes.",
     minOrderNote: "Min. 4 pieces",
-    image: "https://images.unsplash.com/photo-1621236378699-8597fee6a1ce?auto=format&fit=crop&q=80&w=600"
+    image: "https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&q=80&w=600"
   },
   {
     name: "Chicken Pie",
@@ -118,8 +118,6 @@ const PASTRIES_AND_DESSERTS = [
 ];
 
 export default function Menu() {
-  const [activeTab, setActiveTab] = useState('all');
-
   return (
     <Container className="py-5">
       {/* Header */}

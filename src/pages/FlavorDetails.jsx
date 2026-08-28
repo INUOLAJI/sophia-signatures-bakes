@@ -24,7 +24,7 @@ const FLAVOR_PROFILES = [
     description: 'Silky, Moist & Velvety Red Velvet',
     notes: 'A luxurious crimson sponge with subtle cocoa undertones and an exceptionally tender, velvety crumb that dissolves deliciously.',
     badge: 'Customer Favorite',
-    image: 'https://images.unsplash.com/photo-1586788680434-30d324b2d46f?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?auto=format&fit=crop&q=80&w=800',
     pairsWith: 'Ideal for romantic celebrations, anniversaries, birthday surprises & parfaits.'
   },
   {

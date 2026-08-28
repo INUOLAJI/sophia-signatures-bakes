@@ -7,7 +7,7 @@ const FEATURED_CATEGORIES = [
     title: 'Custom Celebration Cakes', 
     desc: 'From 4" Bento Takeaways to grand 12" luxury cakes. Starting from ₦10,000.',
     priceBadge: 'From ₦10,000',
-    image: 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?auto=format&fit=crop&q=80&w=800',
     link: '/menu'
   },
   { 
@@ -43,7 +43,7 @@ const SIGNATURE_FLAVORS = [
     name: 'Red Velvet',
     desc: 'Silky, Moist & Velvety Red Velvet',
     tag: 'Crowd Pleaser',
-    image: 'https://images.unsplash.com/photo-1586788680434-30d324b2d46f?auto=format&fit=crop&q=80&w=600'
+    image: 'https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?auto=format&fit=crop&q=80&w=600'
   },
   {
     name: 'Strawberry Bliss',
