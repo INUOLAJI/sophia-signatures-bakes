@@ -38,6 +38,11 @@ body {
   color: #ffffff !important;
 }
 
+.bg-golden-dark {
+  background-color: var(--golden-dark) !important;
+  color: #ffffff !important;
+}
+
 .bg-golden-light {
   background-color: var(--golden-light) !important;
 }
@@ -48,6 +53,26 @@ body {
 
 .border-golden {
   border-color: var(--golden-border) !important;
+}
+
+/* Toast Popups */
+@keyframes toastSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cart-toast-popup {
+  background-color: #FFFFFF !important;
+  color: #1A0D05 !important;
+  border: 1.5px solid var(--golden-accent) !important;
+  box-shadow: 0 12px 35px rgba(100, 56, 14, 0.22) !important;
+  animation: toastSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Golden Buttons */
