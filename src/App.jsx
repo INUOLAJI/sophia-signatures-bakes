@@ -9,6 +9,8 @@ import FlavorDetails from './pages/FlavorDetails';
 import CustomOrder from './pages/CustomOrder';
 import { CartProvider, useCart } from './context/CartContext';
 import { BsCart3 } from 'react-icons/bs';
+import { motion, AnimatePresence } from 'framer-motion';
+import { fadeUp, staggerContainer } from './animations';
 
 function PageLoaderWrapper({ children }) {
   const [loading, setLoading] = useState(true);
@@ -16,19 +18,26 @@ function PageLoaderWrapper({ children }) {
 
   useEffect(() => {
     setLoading(true);
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 500);
-
+    const timer = setTimeout(() => setLoading(false), 500);
     return () => clearTimeout(timer);
   }, [location.pathname]);
 
   return (
     <>
       <Preloader loading={loading} />
-      <div style={{ visibility: loading ? 'hidden' : 'visible' }}>
-        {children}
-      </div>
+      <AnimatePresence mode="wait">
+        {!loading && (
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {children}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
@@ -40,22 +49,43 @@ function FloatingCartButton() {
   if (totalItemCount === 0 || location.pathname === '/order') return null;
 
   return (
-    <Link
-      to="/order"
-      className="position-fixed bottom-0 end-0 m-4 p-3 bg-golden-dark text-white rounded-pill shadow-lg d-flex align-items-center gap-3 text-decoration-none border border-golden"
-      style={{ zIndex: 9990, transition: 'all 0.3s ease' }}
-    >
-      <div className="position-relative d-flex align-items-center justify-content-center">
-        <BsCart3 size={24} />
-        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light">
-          {totalItemCount}
-        </span>
-      </div>
-      <div className="d-none d-sm-block text-start lh-1">
-        <div className="fw-bold small">View Cart & Order</div>
-        <small className="opacity-75" style={{ fontSize: '0.75rem' }}>₦{subtotal.toLocaleString()}</small>
-      </div>
-    </Link>
+    <AnimatePresence>
+      <motion.div
+        key="floating-cart"
+        initial={{ opacity: 0, scale: 0.7, y: 40 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.7, y: 40 }}
+        transition={{ type: 'spring', stiffness: 280, damping: 22 }}
+        whileHover={{ scale: 1.06 }}
+        whileTap={{ scale: 0.94 }}
+        style={{ position: 'fixed', bottom: '1.5rem', right: '1.5rem', zIndex: 9990 }}
+      >
+        <Link
+          to="/order"
+          className="p-3 bg-golden-dark text-white rounded-pill shadow-lg d-flex align-items-center gap-3 text-decoration-none border border-golden"
+        >
+          <div className="position-relative d-flex align-items-center justify-content-center">
+            <BsCart3 size={24} />
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={totalItemCount}
+                initial={{ scale: 0.4, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.4, opacity: 0 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 18 }}
+                className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light"
+              >
+                {totalItemCount}
+              </motion.span>
+            </AnimatePresence>
+          </div>
+          <div className="d-none d-sm-block text-start lh-1">
+            <div className="fw-bold small">View Cart & Order</div>
+            <small className="opacity-75" style={{ fontSize: '0.75rem' }}>₦{subtotal.toLocaleString()}</small>
+          </div>
+        </Link>
+      </motion.div>
+    </AnimatePresence>
   );
 }
 
@@ -78,52 +108,59 @@ export default function App() {
 
             <FloatingCartButton />
 
-            <footer className="py-5 bg-white border-top border-golden mt-5 text-center">
+            {/* Animated Footer */}
+            <motion.footer
+              className="py-5 bg-white border-top border-golden mt-5 text-center"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <div className="container">
-                <div className="d-flex justify-content-center align-items-center gap-3 mb-3">
-                  <img 
-                    src="/sophia-logo.jpeg" 
-                    alt="Sophia's Signature Bakes" 
+                <motion.div variants={fadeUp} className="d-flex justify-content-center align-items-center gap-3 mb-3">
+                  <motion.img
+                    src="/sophia-logo.jpeg"
+                    alt="Sophia's Signature Bakes"
                     className="rounded-circle shadow-sm border border-golden"
                     style={{ width: '60px', height: '60px', objectFit: 'cover' }}
+                    whileHover={{ rotate: 10, scale: 1.12 }}
+                    transition={{ type: 'spring', stiffness: 260, damping: 14 }}
                   />
                   <div className="text-start">
                     <h4 className="fw-bold text-golden-dark mb-0 lh-1" style={{ fontFamily: "'Playfair Display', serif" }}>
                       Sophia's Signature Bakes
                     </h4>
-                    <small className="text-golden-accent fst-italic">
-                      refined sweetness, perfected
-                    </small>
+                    <small className="text-golden-accent fst-italic">refined sweetness, perfected</small>
                   </div>
-                </div>
+                </motion.div>
 
-                <p className="text-muted small mb-3 max-w-md mx-auto">
+                <motion.p variants={fadeUp} className="text-muted small mb-3 max-w-md mx-auto">
                   Handcrafted custom cakes, small chops platters, puff puff packs, milky doughnuts & artisan pastries for your celebrations.
-                </p>
+                </motion.p>
 
-                <div className="d-flex justify-content-center align-items-center gap-2 mb-3">
+                <motion.div variants={fadeUp} className="d-flex justify-content-center align-items-center gap-2 mb-3">
                   <span className="badge bg-golden-subtle text-golden-dark px-3 py-2 rounded-pill border border-golden">
                     📞 WhatsApp / Call: <strong>09118784051</strong>
                   </span>
-                </div>
+                </motion.div>
 
-                <div className="d-flex justify-content-center gap-3 mb-3 small flex-wrap">
-                  <Link to="/" className="text-golden text-decoration-none fw-medium">Home</Link>
-                  <span className="text-muted">•</span>
-                  <Link to="/menu" className="text-golden text-decoration-none fw-medium">Menu & Pricing</Link>
-                  <span className="text-muted">•</span>
-                  <Link to="/custom-order" className="text-golden text-decoration-none fw-medium">Custom Cake Studio</Link>
-                  <span className="text-muted">•</span>
-                  <Link to="/flavor-details" className="text-golden text-decoration-none fw-medium">Signature Flavors</Link>
-                  <span className="text-muted">•</span>
-                  <Link to="/order" className="text-golden text-decoration-none fw-medium">View Cart / Order</Link>
-                </div>
+                <motion.div variants={fadeUp} className="d-flex justify-content-center gap-3 mb-3 small flex-wrap">
+                  {['/', '/menu', '/custom-order', '/flavor-details', '/order'].map((path, i) => {
+                    const labels = ['Home', 'Menu & Pricing', 'Custom Cake Studio', 'Signature Flavors', 'View Cart / Order'];
+                    return (
+                      <React.Fragment key={path}>
+                        <Link to={path} className="text-golden text-decoration-none fw-medium">{labels[i]}</Link>
+                        {i < 4 && <span className="text-muted">•</span>}
+                      </React.Fragment>
+                    );
+                  })}
+                </motion.div>
 
-                <small className="text-muted">
+                <motion.small variants={fadeUp} className="text-muted">
                   © {new Date().getFullYear()} Sophia's Signature Bakes. All rights reserved.
-                </small>
+                </motion.small>
               </div>
-            </footer>
+            </motion.footer>
           </div>
         </PageLoaderWrapper>
       </Router>
