@@ -233,6 +233,29 @@ export default function Menu() {
         </Row>
       </div>
 
+      {/* Custom Cake Order Studio Banner */}
+      <div className="p-4 p-md-5 rounded-4 mb-5 shadow-sm border border-golden bg-white">
+        <Row className="align-items-center gy-3">
+          <Col md={8}>
+            <div className="d-flex align-items-center gap-2 mb-2">
+              <Badge className="badge-gold-accent px-3 py-1 rounded-pill">✨ Bespoke Studio</Badge>
+              <span className="small text-muted">Multi-tier, Toppers, Inscriptions & Colors</span>
+            </div>
+            <h3 className="fw-bold text-golden-dark mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Looking for a Fully Customized Cake?
+            </h3>
+            <p className="text-muted mb-0 small">
+              Use our interactive <strong>Custom Order Form</strong> to select custom tier counts, heart shapes, vintage lambeth piping, custom acrylic toppers, fresh florals, and get an instant quote ready for WhatsApp.
+            </p>
+          </Col>
+          <Col md={4} className="text-md-end">
+            <Button as={Link} to="/custom-order" className="btn-golden rounded-pill px-4 py-2">
+              ✨ Build Custom Cake →
+            </Button>
+          </Col>
+        </Row>
+      </div>
+
       {/* Section 2: Cake Sizing & Pricing */}
       <div className="mb-5 pt-3">
         <div className="d-flex flex-wrap justify-content-between align-items-end mb-4 border-bottom border-golden pb-3">

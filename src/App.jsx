@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Menu from './pages/Menu';
 import Order from './pages/Order';
 import FlavorDetails from './pages/FlavorDetails';
+import CustomOrder from './pages/CustomOrder';
 import { CartProvider, useCart } from './context/CartContext';
 
 function PageLoaderWrapper({ children }) {
@@ -72,6 +73,7 @@ export default function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/menu" element={<Menu />} />
+                <Route path="/custom-order" element={<CustomOrder />} />
                 <Route path="/order" element={<Order />} />
                 <Route path="/flavor-details" element={<FlavorDetails />} />
               </Routes>
@@ -112,6 +114,8 @@ export default function App() {
                   <Link to="/" className="text-golden text-decoration-none fw-medium">Home</Link>
                   <span className="text-muted">•</span>
                   <Link to="/menu" className="text-golden text-decoration-none fw-medium">Menu & Pricing</Link>
+                  <span className="text-muted">•</span>
+                  <Link to="/custom-order" className="text-golden text-decoration-none fw-medium">Custom Cake Studio</Link>
                   <span className="text-muted">•</span>
                   <Link to="/flavor-details" className="text-golden text-decoration-none fw-medium">Signature Flavors</Link>
                   <span className="text-muted">•</span>

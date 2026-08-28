@@ -82,6 +82,15 @@ export default function NavigationBar() {
             </Nav.Link>
             <Nav.Link 
               as={Link} 
+              to="/custom-order" 
+              className={`d-flex align-items-center gap-1 ${location.pathname === '/custom-order' ? 'text-golden fw-bold' : 'text-dark fw-medium'}`}
+              onClick={handleNavClick}
+            >
+              <span>Custom Order</span>
+              <span className="badge badge-gold-accent rounded-pill px-2 py-0.5" style={{ fontSize: '0.65rem' }}>Bespoke</span>
+            </Nav.Link>
+            <Nav.Link 
+              as={Link} 
               to="/flavor-details" 
               className={location.pathname === '/flavor-details' ? 'text-golden fw-bold' : 'text-dark fw-medium'}
               onClick={handleNavClick}

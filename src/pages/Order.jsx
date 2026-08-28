@@ -78,7 +78,19 @@ export default function Order() {
       const flavorTxt = item.flavor ? ` [Flavor: ${item.flavor}]` : '';
       const priceNum = item.priceNum || parseInt(String(item.price).replace(/[^0-9]/g, ''), 10) || 0;
       const itemTotal = priceNum * item.quantity;
-      itemsSummary += `${idx + 1}. *${item.name}*${flavorTxt}%0A   Qty: ${item.quantity} × ₦${priceNum.toLocaleString()} = ₦${itemTotal.toLocaleString()}%0A`;
+      
+      let customSpecs = "";
+      if (item.customDetails) {
+        const d = item.customDetails;
+        customSpecs = `%0A     • Occasion: ${encodeURIComponent(d.occasion)}` +
+          `%0A     • Shape: ${encodeURIComponent(d.shape)}` +
+          `%0A     • Finish: ${encodeURIComponent(d.frostingStyle)}` +
+          `%0A     • Theme: ${encodeURIComponent(d.colorPalette)}` +
+          (d.inscription && d.inscription !== 'None requested' ? `%0A     • Text: "${encodeURIComponent(d.inscription)}"` : '') +
+          (d.addons && d.addons.length > 0 ? `%0A     • Add-ons: ${encodeURIComponent(d.addons.join(', '))}` : '');
+      }
+
+      itemsSummary += `${idx + 1}. *${item.name}*${flavorTxt}%0A   Qty: ${item.quantity} × ₦${priceNum.toLocaleString()} = ₦${itemTotal.toLocaleString()}${customSpecs}%0A`;
     });
 
     let message = `👋 *Hello Sophia's Signature Bakes! I'd like to place an order:*%0A%0A` +
@@ -201,9 +213,20 @@ export default function Order() {
                         <div>
                           <h6 className="fw-bold text-golden-dark mb-1">{item.name}</h6>
                           {item.flavor && (
-                            <Badge className="badge-gold-accent mb-1 small">
+                            <Badge className="badge-gold-accent mb-1 small me-1">
                               Flavor: {item.flavor}
                             </Badge>
+                          )}
+                          {item.customDetails && (
+                            <div className="small text-muted mb-1" style={{ fontSize: '0.75rem', lineHeight: '1.3' }}>
+                              <span>• {item.customDetails.occasion} ({item.customDetails.shape})</span>
+                              {item.customDetails.inscription && item.customDetails.inscription !== 'None requested' && (
+                                <div>• Inscription: "{item.customDetails.inscription}"</div>
+                              )}
+                              {item.customDetails.addons && item.customDetails.addons.length > 0 && (
+                                <div>• Toppers: {item.customDetails.addons.join(', ')}</div>
+                              )}
+                            </div>
                           )}
                           <div className="text-golden fw-semibold small">
                             ₦{priceNum.toLocaleString()} each
@@ -257,6 +280,20 @@ export default function Order() {
                 })}
               </div>
             )}
+
+            {/* Custom Cake Studio Callout */}
+            <div className="p-3 rounded-3 bg-golden-subtle border border-golden mb-3 d-flex justify-content-between align-items-center flex-wrap gap-2">
+              <div className="d-flex align-items-center gap-2">
+                <span className="fs-4">🎨</span>
+                <div className="small">
+                  <strong className="text-golden-dark d-block">Need a Custom Celebration Cake?</strong>
+                  <span className="text-muted">Choose your custom tiers, fillings, vintage piping & luxury toppers.</span>
+                </div>
+              </div>
+              <Button as={Link} to="/custom-order" size="sm" className="btn-golden rounded-pill px-3">
+                Custom Cake Form →
+              </Button>
+            </div>
 
             {/* Quick Add More Section */}
             <div className="mt-auto pt-3 border-top border-golden">

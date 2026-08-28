@@ -78,8 +78,8 @@ export default function Home() {
             Handcrafted custom cakes, golden fluffy pastries, signature milky doughnuts, and irresistible small chops boxes baked fresh for your special moments.
           </p>
           <div className="d-flex flex-wrap gap-3">
-            <Button as={Link} to="/order" className="btn-golden rounded-pill px-4 py-2 fs-5">
-              Place Your Order
+            <Button as={Link} to="/custom-order" className="btn-golden rounded-pill px-4 py-2 fs-5">
+              ✨ Custom Cake Order Form
             </Button>
             <Button as={Link} to="/menu" className="btn-outline-golden rounded-pill px-4 py-2 fs-5">
               Explore Menu & Prices
@@ -159,6 +159,44 @@ export default function Home() {
           </Col>
         ))}
       </Row>
+
+      {/* Custom Cake Feature Banner */}
+      <div className="p-4 p-md-5 rounded-4 mb-5 shadow-sm border border-golden bg-white position-relative overflow-hidden">
+        <Row className="align-items-center gy-4">
+          <Col lg={7}>
+            <Badge className="badge-gold-accent px-3 py-2 rounded-pill mb-2">
+              🎨 Interactive Cake Studio
+            </Badge>
+            <h2 className="fw-bold text-golden-dark display-6 mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Have a Unique Cake Idea or Theme?
+            </h2>
+            <p className="text-golden-text-muted mb-4 fs-6">
+              Use our brand new <strong>Custom Order Form</strong> to choose your tiers (4" Bento to 12" Grand or 3-Tier Weddings), customize delicious sponge flavors & fillings, pick vintage piping or luxury toppers, and receive an instant quote ready for WhatsApp!
+            </p>
+            <div className="d-flex flex-wrap gap-3">
+              <Button as={Link} to="/custom-order" className="btn-golden rounded-pill px-4 py-2">
+                Open Custom Order Form →
+              </Button>
+              <Button as={Link} to="/flavor-details" className="btn-outline-golden rounded-pill px-4 py-2">
+                Explore Flavors
+              </Button>
+            </div>
+          </Col>
+          <Col lg={5}>
+            <div className="position-relative">
+              <img 
+                src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&q=80&w=800" 
+                alt="Luxury Custom Celebration Cake"
+                className="img-fluid rounded-4 shadow w-100"
+                style={{ maxHeight: '280px', objectFit: 'cover' }}
+              />
+              <span className="position-absolute bottom-0 end-0 m-3 badge bg-golden-dark text-white rounded-pill px-3 py-2 shadow-sm">
+                🎂 Tailored For Your Event
+              </span>
+            </div>
+          </Col>
+        </Row>
+      </div>
 
       {/* Signature Flavors Section */}
       <div className="bg-golden-subtle p-4 p-md-5 rounded-4 mb-5 border border-golden">

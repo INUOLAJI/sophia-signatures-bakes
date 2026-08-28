@@ -29,10 +29,10 @@ export function CartProvider({ children }) {
     }, 3000);
   };
 
-  const addToCart = (item, quantity = 1, flavor = null) => {
+  const addToCart = (item, quantity = 1, flavor = null, customDetails = null) => {
     setCartItems(prevItems => {
-      // Unique key based on item name and flavor
-      const itemKey = flavor ? `${item.name}-${flavor}` : item.name;
+      // Unique key based on item customKey, flavor, or unique id for custom configurations
+      const itemKey = item.key || (customDetails ? `custom-cake-${Date.now()}` : (flavor ? `${item.name}-${flavor}` : item.name));
       const existingIndex = prevItems.findIndex(i => i.key === itemKey);
 
       if (existingIndex > -1) {
@@ -48,9 +48,10 @@ export function CartProvider({ children }) {
           ...item,
           key: itemKey,
           flavor: flavor || item.flavor || null,
+          customDetails: customDetails || item.customDetails || null,
           quantity: Math.max(quantity, item.minOrder || 1)
         };
-        showToast(`Added "${item.name}"${flavor ? ` (${flavor})` : ''} to cart! 🛒`);
+        showToast(`Added "${item.name}" to cart! 🛒`);
         return [...prevItems, newItem];
       }
     });
