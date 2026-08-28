@@ -1,6 +1,7 @@
-import React from 'react';
-import { Container, Row, Col, Card, Badge, Button, Table } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Container, Row, Col, Card, Badge, Button, Table, Modal, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 
 const FLAVOR_PROFILES = [
   {
@@ -38,38 +39,60 @@ const FLAVOR_PROFILES = [
 ];
 
 const CAKE_SIZING_TABLE = [
-  { size: "4' inches (Bento Takeaway)", servings: "1 – 2 portions", bestFor: "Solo treat, intimate gift, mini celebration", price: "₦10,000" },
-  { size: "4' inches (Board)", servings: "2 – 3 portions", bestFor: "Photo sessions, cute birthday bento on board", price: "₦12,000" },
-  { size: "6 inches", servings: "4 – 6 portions", bestFor: "Small family gathering, close friends", price: "₦14,000" },
-  { size: "7 inches", servings: "8 – 10 portions", bestFor: "Standard birthday party & home events", price: "₦18,000" },
-  { size: "8 inches", servings: "12 – 15 portions", bestFor: "Medium celebrations, dinner parties", price: "₦22,000" },
-  { size: "9 inches", servings: "18 – 22 portions", bestFor: "Family milestones, larger parties", price: "₦28,000" },
-  { size: "10 inches", servings: "25 – 30 portions", bestFor: "Office parties, grand birthdays", price: "₦35,000" },
-  { size: "11 inches", servings: "35 – 40 portions", bestFor: "Big social events & weddings", price: "₦42,000" },
-  { size: "12 inches", servings: "45 – 50+ portions", bestFor: "Major celebrations & showstopper events", price: "₦50,000" },
+  { size: "4' inches (Bento Takeaway)", priceNum: 10000, servings: "1 – 2 portions", bestFor: "Solo treat, intimate gift, mini celebration", price: "₦10,000" },
+  { size: "4' inches (Board)", priceNum: 12000, servings: "2 – 3 portions", bestFor: "Photo sessions, cute birthday bento on board", price: "₦12,000" },
+  { size: "6 inches", priceNum: 14000, servings: "4 – 6 portions", bestFor: "Small family gathering, close friends", price: "₦14,000" },
+  { size: "7 inches", priceNum: 18000, servings: "8 – 10 portions", bestFor: "Standard birthday party & home events", price: "₦18,000" },
+  { size: "8 inches", priceNum: 22000, servings: "12 – 15 portions", bestFor: "Medium celebrations, dinner parties", price: "₦22,000" },
+  { size: "9 inches", priceNum: 28000, servings: "18 – 22 portions", bestFor: "Family milestones, larger parties", price: "₦28,000" },
+  { size: "10 inches", priceNum: 35000, servings: "25 – 30 portions", bestFor: "Office parties, grand birthdays", price: "₦35,000" },
+  { size: "11 inches", priceNum: 42000, servings: "35 – 40 portions", bestFor: "Big social events & weddings", price: "₦42,000" },
+  { size: "12 inches", priceNum: 50000, servings: "45 – 50+ portions", bestFor: "Major celebrations & showstopper events", price: "₦50,000" },
 ];
 
 export default function FlavorDetails() {
   const navigate = useNavigate();
+  const { addToCart, totalItemCount } = useCart();
+  const [selectedFlavorForOrder, setSelectedFlavorForOrder] = useState(null);
+  const [selectedSizeIndex, setSelectedSizeIndex] = useState(2); // default 6 inches
+
+  const handleAddConfiguredCake = () => {
+    if (!selectedFlavorForOrder) return;
+    const sizeObj = CAKE_SIZING_TABLE[selectedSizeIndex];
+    addToCart({
+      name: `${sizeObj.size} Cake`,
+      price: sizeObj.price,
+      priceNum: sizeObj.priceNum,
+      category: 'Cakes'
+    }, 1, selectedFlavorForOrder.name);
+    setSelectedFlavorForOrder(null);
+  };
 
   return (
     <Container className="py-5">
       {/* Page Header */}
-      <div className="mb-4">
-        <Button 
-          variant="outline-secondary" 
-          size="sm" 
-          onClick={() => navigate(-1)} 
-          className="btn-outline-golden rounded-pill mb-3"
-        >
-          ← Back
-        </Button>
-        <h1 className="fw-bold text-golden-dark display-5" style={{ fontFamily: "'Playfair Display', serif" }}>
-          Signature Flavors & Portion Chart
-        </h1>
-        <p className="text-muted">
-          Discover our 4 signature baked sponge recipes and comprehensive cake portion guide.
-        </p>
+      <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+        <div>
+          <Button 
+            variant="outline-secondary" 
+            size="sm" 
+            onClick={() => navigate(-1)} 
+            className="btn-outline-golden rounded-pill mb-2"
+          >
+            ← Back
+          </Button>
+          <h1 className="fw-bold text-golden-dark display-5" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Signature Flavors & Portion Chart
+          </h1>
+          <p className="text-muted mb-0">
+            Discover our 4 signature baked sponge recipes and comprehensive cake portion guide.
+          </p>
+        </div>
+
+        <Link to="/order" className="btn btn-golden rounded-pill px-4 d-flex align-items-center gap-2">
+          <span>🛒 View Cart</span>
+          <Badge bg="white" text="dark">{totalItemCount}</Badge>
+        </Link>
       </div>
 
       {/* Prominent Notes & Discount Alerts */}
@@ -131,8 +154,11 @@ export default function FlavorDetails() {
                         </p>
                       </div>
                       <div>
-                        <Button as={Link} to="/order" className="btn-golden w-100 rounded-pill btn-sm">
-                          Order in {flavor.name}
+                        <Button 
+                          onClick={() => setSelectedFlavorForOrder(flavor)} 
+                          className="btn-golden w-100 rounded-pill btn-sm d-flex align-items-center justify-content-center gap-1"
+                        >
+                          <span>+ Add {flavor.name} Cake to Cart</span>
                         </Button>
                       </div>
                     </Card.Body>
@@ -179,10 +205,47 @@ export default function FlavorDetails() {
 
         <div className="text-center mt-4 pt-3 border-top border-golden">
           <Button as={Link} to="/order" className="btn-golden rounded-pill px-5 py-2 fs-6">
-            Go To Order Form 💬
+            Go To Cart & Checkout ({totalItemCount} Items) 💬
           </Button>
         </div>
       </Card>
+
+      {/* Modal for picking cake size for selected flavor */}
+      <Modal show={!!selectedFlavorForOrder} onHide={() => setSelectedFlavorForOrder(null)} centered>
+        <Modal.Header closeButton className="border-golden bg-golden-light">
+          <Modal.Title className="fw-bold text-golden-dark fs-5" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Add {selectedFlavorForOrder?.name} Cake
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="p-4">
+          <p className="text-muted small mb-3">
+            Flavor selected: <strong>{selectedFlavorForOrder?.name}</strong> ({selectedFlavorForOrder?.description})
+          </p>
+
+          <Form.Group className="mb-3">
+            <Form.Label className="fw-semibold text-golden-dark">Choose Cake Size & Price:</Form.Label>
+            <Form.Select 
+              value={selectedSizeIndex} 
+              onChange={(e) => setSelectedSizeIndex(parseInt(e.target.value, 10))}
+              className="py-2"
+            >
+              {CAKE_SIZING_TABLE.map((size, idx) => (
+                <option key={idx} value={idx}>
+                  {size.size} — {size.price} ({size.servings})
+                </option>
+              ))}
+            </Form.Select>
+          </Form.Group>
+        </Modal.Body>
+        <Modal.Footer className="border-golden">
+          <Button variant="outline-secondary" onClick={() => setSelectedFlavorForOrder(null)} className="rounded-pill">
+            Cancel
+          </Button>
+          <Button onClick={handleAddConfiguredCake} className="btn-golden rounded-pill px-4">
+            🛒 Add to Cart
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 }

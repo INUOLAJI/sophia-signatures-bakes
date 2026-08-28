@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Menu from './pages/Menu';
 import Order from './pages/Order';
 import FlavorDetails from './pages/FlavorDetails';
+import { CartProvider, useCart } from './context/CartContext';
 
 function PageLoaderWrapper({ children }) {
   const [loading, setLoading] = useState(true);
@@ -15,7 +16,7 @@ function PageLoaderWrapper({ children }) {
     setLoading(true);
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 600);
+    }, 500);
 
     return () => clearTimeout(timer);
   }, [location.pathname]);
@@ -30,67 +31,101 @@ function PageLoaderWrapper({ children }) {
   );
 }
 
+function FloatingCartButton() {
+  const { totalItemCount, subtotal } = useCart();
+  const location = useLocation();
+
+  if (totalItemCount === 0 || location.pathname === '/order') return null;
+
+  return (
+    <Link
+      to="/order"
+      className="position-fixed bottom-0 end-0 m-4 p-3 bg-golden-dark text-white rounded-pill shadow-lg d-flex align-items-center gap-3 text-decoration-none border border-golden"
+      style={{ zIndex: 9990, transition: 'all 0.3s ease' }}
+    >
+      <div className="position-relative d-flex align-items-center justify-content-center">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="8" cy="21" r="1"/>
+          <circle cx="19" cy="21" r="1"/>
+          <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+        </svg>
+        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light">
+          {totalItemCount}
+        </span>
+      </div>
+      <div className="d-none d-sm-block text-start lh-1">
+        <div className="fw-bold small">View Cart & Order</div>
+        <small className="opacity-75" style={{ fontSize: '0.75rem' }}>₦{subtotal.toLocaleString()}</small>
+      </div>
+    </Link>
+  );
+}
+
 export default function App() {
   return (
-    <Router>
-      <PageLoaderWrapper>
-        <div className="min-h-screen d-flex flex-column justify-content-between bg-golden-light">
-          <div>
-            <NavigationBar />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/menu" element={<Menu />} />
-              <Route path="/order" element={<Order />} />
-              <Route path="/flavor-details" element={<FlavorDetails />} />
-            </Routes>
-          </div>
-
-          <footer className="py-5 bg-white border-top border-golden mt-5 text-center">
-            <div className="container">
-              <div className="d-flex justify-content-center align-items-center gap-3 mb-3">
-                <img 
-                  src="/sophia-logo.jpeg" 
-                  alt="Sophia's Signature Bakes" 
-                  className="rounded-circle shadow-sm border border-golden"
-                  style={{ width: '60px', height: '60px', objectFit: 'cover' }}
-                />
-                <div className="text-start">
-                  <h4 className="fw-bold text-golden-dark mb-0 lh-1" style={{ fontFamily: "'Playfair Display', serif" }}>
-                    Sophia's Signature Bakes
-                  </h4>
-                  <small className="text-golden-accent fst-italic">
-                    refined sweetness, perfected
-                  </small>
-                </div>
-              </div>
-
-              <p className="text-muted small mb-3 max-w-md mx-auto">
-                Handcrafted custom cakes, small chops platters, puff puff packs, milky doughnuts & artisan pastries for your celebrations.
-              </p>
-
-              <div className="d-flex justify-content-center align-items-center gap-2 mb-3">
-                <span className="badge bg-golden-subtle text-golden-dark px-3 py-2 rounded-pill border border-golden">
-                  📞 WhatsApp / Call: <strong>09118784051</strong>
-                </span>
-              </div>
-
-              <div className="d-flex justify-content-center gap-3 mb-3 small flex-wrap">
-                <Link to="/" className="text-golden text-decoration-none fw-medium">Home</Link>
-                <span className="text-muted">•</span>
-                <Link to="/menu" className="text-golden text-decoration-none fw-medium">Menu & Pricing</Link>
-                <span className="text-muted">•</span>
-                <Link to="/flavor-details" className="text-golden text-decoration-none fw-medium">Signature Flavors</Link>
-                <span className="text-muted">•</span>
-                <Link to="/order" className="text-golden text-decoration-none fw-medium">Order on WhatsApp</Link>
-              </div>
-
-              <small className="text-muted">
-                © {new Date().getFullYear()} Sophia's Signature Bakes. All rights reserved.
-              </small>
+    <CartProvider>
+      <Router>
+        <PageLoaderWrapper>
+          <div className="min-h-screen d-flex flex-column justify-content-between bg-golden-light">
+            <div>
+              <NavigationBar />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/menu" element={<Menu />} />
+                <Route path="/order" element={<Order />} />
+                <Route path="/flavor-details" element={<FlavorDetails />} />
+              </Routes>
             </div>
-          </footer>
-        </div>
-      </PageLoaderWrapper>
-    </Router>
+
+            <FloatingCartButton />
+
+            <footer className="py-5 bg-white border-top border-golden mt-5 text-center">
+              <div className="container">
+                <div className="d-flex justify-content-center align-items-center gap-3 mb-3">
+                  <img 
+                    src="/sophia-logo.jpeg" 
+                    alt="Sophia's Signature Bakes" 
+                    className="rounded-circle shadow-sm border border-golden"
+                    style={{ width: '60px', height: '60px', objectFit: 'cover' }}
+                  />
+                  <div className="text-start">
+                    <h4 className="fw-bold text-golden-dark mb-0 lh-1" style={{ fontFamily: "'Playfair Display', serif" }}>
+                      Sophia's Signature Bakes
+                    </h4>
+                    <small className="text-golden-accent fst-italic">
+                      refined sweetness, perfected
+                    </small>
+                  </div>
+                </div>
+
+                <p className="text-muted small mb-3 max-w-md mx-auto">
+                  Handcrafted custom cakes, small chops platters, puff puff packs, milky doughnuts & artisan pastries for your celebrations.
+                </p>
+
+                <div className="d-flex justify-content-center align-items-center gap-2 mb-3">
+                  <span className="badge bg-golden-subtle text-golden-dark px-3 py-2 rounded-pill border border-golden">
+                    📞 WhatsApp / Call: <strong>09118784051</strong>
+                  </span>
+                </div>
+
+                <div className="d-flex justify-content-center gap-3 mb-3 small flex-wrap">
+                  <Link to="/" className="text-golden text-decoration-none fw-medium">Home</Link>
+                  <span className="text-muted">•</span>
+                  <Link to="/menu" className="text-golden text-decoration-none fw-medium">Menu & Pricing</Link>
+                  <span className="text-muted">•</span>
+                  <Link to="/flavor-details" className="text-golden text-decoration-none fw-medium">Signature Flavors</Link>
+                  <span className="text-muted">•</span>
+                  <Link to="/order" className="text-golden text-decoration-none fw-medium">View Cart / Order</Link>
+                </div>
+
+                <small className="text-muted">
+                  © {new Date().getFullYear()} Sophia's Signature Bakes. All rights reserved.
+                </small>
+              </div>
+            </footer>
+          </div>
+        </PageLoaderWrapper>
+      </Router>
+    </CartProvider>
   );
 }
