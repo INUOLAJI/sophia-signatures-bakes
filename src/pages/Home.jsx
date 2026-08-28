@@ -171,7 +171,7 @@ export default function Home() {
               Have a Unique Cake Idea or Theme?
             </h2>
             <p className="text-golden-text-muted mb-4 fs-6">
-              Use our brand new <strong>Custom Order Form</strong> to choose your tiers (4" Bento to 12" Grand or 3-Tier Weddings), customize delicious sponge flavors & fillings, luxury toppers, and receive an instant quote ready for WhatsApp!
+              Use our brand new <strong>Custom Order Form</strong> to choose your size (4" Bento to 12" Grand Celebration Cakes), customize delicious sponge flavors & fillings, luxury toppers, and receive an instant quote ready for WhatsApp!
             </p>
             <div className="d-flex flex-wrap gap-3">
               <Button as={Link} to="/custom-order" className="btn-golden rounded-pill px-4 py-2">

@@ -239,13 +239,13 @@ export default function Menu() {
           <Col md={8}>
             <div className="d-flex align-items-center gap-2 mb-2">
               <Badge className="badge-gold-accent px-3 py-1 rounded-pill">✨ Bespoke Studio</Badge>
-              <span className="small text-muted">Multi-tier, Flavors, Fillings & Toppers</span>
+              <span className="small text-muted">Sizes, Flavors, Fillings & Toppers</span>
             </div>
             <h3 className="fw-bold text-golden-dark mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
               Looking for a Fully Customized Cake?
             </h3>
             <p className="text-muted mb-0 small">
-              Use our interactive <strong>Custom Order Form</strong> to select custom tier counts, heart shapes, custom acrylic toppers, fresh florals, and get an instant quote ready for WhatsApp.
+              Use our interactive <strong>Custom Order Form</strong> to select cake sizes (4" Bento to 12" Grand), heart shapes, custom acrylic toppers, fresh florals, and get an instant quote ready for WhatsApp.
             </p>
           </Col>
           <Col md={4} className="text-md-end">

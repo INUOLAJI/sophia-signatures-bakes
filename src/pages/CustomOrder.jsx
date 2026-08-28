@@ -109,37 +109,6 @@ const CAKE_TIERS_AND_SIZES = [
     badge: 'Showstopper',
     image: '/12inchesboard.jpeg'
   },
-  // Multi-Tier Luxury
-  { 
-    id: 'tier_2_small', 
-    name: '2-Tier Celebration Cake (6" + 8")', 
-    category: 'Multi-Tier',
-    price: 42000, 
-    servings: '20 - 25 portions', 
-    desc: 'Stunning stacked 2-tier cake with custom doweling & support',
-    badge: '2-Tier Luxury',
-    image: '/8inchesboard.jpeg'
-  },
-  { 
-    id: 'tier_2_large', 
-    name: '2-Tier Grand Cake (8" + 10")', 
-    category: 'Multi-Tier',
-    price: 62000, 
-    servings: '40 - 45 portions', 
-    desc: 'Tall dramatic two-tier presentation for milestone birthdays & weddings',
-    badge: 'Grand 2-Tier',
-    image: '/10inchesboard.jpeg'
-  },
-  { 
-    id: 'tier_3_wedding', 
-    name: '3-Tier Luxury Wedding Cake (6" + 8" + 10")', 
-    category: 'Multi-Tier',
-    price: 95000, 
-    servings: '65 - 75+ portions', 
-    desc: 'Lavish three-tier showpiece with structural tier support & bespoke design',
-    badge: 'Wedding Masterpiece',
-    image: '/12inchesboard.jpeg'
-  },
 ];
 
 const CAKE_SHAPES = [
@@ -190,8 +159,7 @@ export default function CustomOrder() {
   const [occasion, setOccasion] = useState('birthday');
   const [selectedSizeId, setSelectedSizeId] = useState('single_8');
   const [selectedShapeId, setSelectedShapeId] = useState('round');
-  const [flavorTier1, setFlavorTier1] = useState('red_velvet');
-  const [flavorTier2, setFlavorTier2] = useState('vanilla');
+  const [flavorId, setFlavorId] = useState('red_velvet');
   const [fillingId, setFillingId] = useState('vanilla_buttercream');
   const [cakeInscription, setCakeInscription] = useState('');
   
@@ -221,19 +189,13 @@ export default function CustomOrder() {
     return CAKE_SHAPES.find(sh => sh.id === selectedShapeId) || CAKE_SHAPES[0];
   }, [selectedShapeId]);
 
-  const selectedFlavor1Obj = useMemo(() => {
-    return FLAVORS.find(f => f.id === flavorTier1) || FLAVORS[0];
-  }, [flavorTier1]);
-
-  const selectedFlavor2Obj = useMemo(() => {
-    return FLAVORS.find(f => f.id === flavorTier2) || FLAVORS[0];
-  }, [flavorTier2]);
+  const selectedFlavorObj = useMemo(() => {
+    return FLAVORS.find(f => f.id === flavorId) || FLAVORS[0];
+  }, [flavorId]);
 
   const selectedFillingObj = useMemo(() => {
     return FILLINGS.find(fl => fl.id === fillingId) || FILLINGS[0];
   }, [fillingId]);
-
-  const isMultiTier = selectedSizeObj.category === 'Multi-Tier';
 
   // Toggle addons
   const handleToggleAddon = (id) => {
@@ -267,12 +229,8 @@ export default function CustomOrder() {
 
   // Flavors extra total
   const flavorsExtraTotal = useMemo(() => {
-    let sum = selectedFlavor1Obj.extraPrice + selectedFillingObj.extraPrice;
-    if (isMultiTier) {
-      sum += selectedFlavor2Obj.extraPrice;
-    }
-    return sum;
-  }, [selectedFlavor1Obj, selectedFlavor2Obj, selectedFillingObj, isMultiTier]);
+    return selectedFlavorObj.extraPrice + selectedFillingObj.extraPrice;
+  }, [selectedFlavorObj, selectedFillingObj]);
 
   // Total calculated price estimate
   const estimatedTotal = useMemo(() => {
@@ -309,8 +267,7 @@ export default function CustomOrder() {
       cakeCategory: selectedSizeObj.category,
       servings: selectedSizeObj.servings,
       shape: selectedShapeObj.name,
-      flavorTier1: selectedFlavor1Obj.name,
-      flavorTier2: isMultiTier ? selectedFlavor2Obj.name : null,
+      flavor: selectedFlavorObj.name,
       filling: selectedFillingObj.name,
       inscription: cakeInscription || 'None requested',
       addons: addonsList,
@@ -348,11 +305,6 @@ export default function CustomOrder() {
       ? summary.combos.map(c => `   • ${c}`).join('%0A')
       : '   None';
 
-    let flavorsText = `   • Tier 1: ${summary.flavorTier1}`;
-    if (summary.flavorTier2) {
-      flavorsText += `%0A   • Tier 2: ${summary.flavorTier2}`;
-    }
-
     let message = `🎂 *CUSTOM CAKE & CELEBRATION ORDER INQUIRY*%0A` +
       `*Sophia's Signature Bakes*%0A` +
       `━━━━━━━━━━━━━━━━━━━━━━%0A%0A` +
@@ -364,9 +316,9 @@ export default function CustomOrder() {
       `🚚 *Delivery Method:* ${encodeURIComponent(summary.deliveryMethod)}` +
       (summary.deliveryAddress !== 'N/A' ? ` (${encodeURIComponent(summary.deliveryAddress)})` : '') + `%0A%0A` +
       `🎂 *CAKE SPECIFICATIONS:*%0A` +
-      `   • *Size / Tier:* ${encodeURIComponent(summary.cakeSize)} (${encodeURIComponent(summary.servings)})%0A` +
+      `   • *Size:* ${encodeURIComponent(summary.cakeSize)} (${encodeURIComponent(summary.servings)})%0A` +
       `   • *Shape:* ${encodeURIComponent(summary.shape)}%0A` +
-      `   • *Flavors:*%0A${flavorsText}%0A` +
+      `   • *Flavor:* ${encodeURIComponent(summary.flavor)}%0A` +
       `   • *Filling:* ${encodeURIComponent(summary.filling)}%0A` +
       `   • *Cake Inscription / Topper Text:* "${encodeURIComponent(summary.inscription)}"%0A%0A` +
       `✨ *SELECTED LUXURY ADD-ONS & TOPPERS:*%0A` +
@@ -396,10 +348,15 @@ export default function CustomOrder() {
       priceNum: summary.estimatedTotal,
       image: selectedSizeObj.image,
       category: 'Custom Cake',
-      flavor: summary.flavorTier1 + (summary.flavorTier2 ? ` & ${summary.flavorTier2}` : ''),
+      flavor: summary.flavor,
       customDetails: summary,
       minOrder: 1
     };
+
+    addToCart(customItem, 1, customItem.flavor, summary);
+    setAddedToCartSuccess(true);
+    setTimeout(() => setAddedToCartSuccess(false), 4000);
+  };
 
     addToCart(customItem, 1, customItem.flavor, summary);
     setAddedToCartSuccess(true);
@@ -492,14 +449,14 @@ export default function CustomOrder() {
                     2
                   </span>
                   <div>
-                    <h4 className="fw-bold text-golden-dark mb-0 fs-5">Cake Size, Tiers & Servings</h4>
-                    <small className="text-muted">Choose your preferred portion size or luxury tiered structure</small>
+                    <h4 className="fw-bold text-golden-dark mb-0 fs-5">Cake Size & Servings</h4>
+                    <small className="text-muted">Choose your preferred portion size</small>
                   </div>
                 </div>
 
                 {/* Filter categories */}
                 <div className="btn-group btn-group-sm rounded-pill p-1 bg-golden-subtle border border-golden">
-                  {['All', 'Bento & Minis', 'Single Tier', 'Multi-Tier'].map(cat => (
+                  {['All', 'Bento & Minis', 'Single Tier'].map(cat => (
                     <button
                       key={cat}
                       type="button"
@@ -618,21 +575,21 @@ export default function CustomOrder() {
                 </div>
               </div>
 
-              {/* Flavor Tier 1 */}
+              {/* Flavor */}
               <div className="mb-4">
                 <label className="fw-bold text-golden-dark mb-2 d-flex justify-content-between align-items-center">
-                  <span>{isMultiTier ? 'Base Tier Flavor (Bottom Tier)' : 'Cake Sponge Flavor'}</span>
+                  <span>Cake Sponge Flavor</span>
                   <Link to="/flavor-details" target="_blank" className="small text-golden text-decoration-none">
                     View Flavor Notes ↗
                   </Link>
                 </label>
                 <Row className="g-2">
                   {FLAVORS.map(fl => {
-                    const isFlSelected = flavorTier1 === fl.id;
+                    const isFlSelected = flavorId === fl.id;
                     return (
                       <Col sm={6} md={4} key={fl.id}>
                         <div
-                          onClick={() => setFlavorTier1(fl.id)}
+                          onClick={() => setFlavorId(fl.id)}
                           className={`p-3 rounded-3 border h-100 cursor-pointer transition-all ${
                             isFlSelected 
                               ? 'bg-golden-subtle border-2 border-golden shadow-sm' 
@@ -657,42 +614,6 @@ export default function CustomOrder() {
                   })}
                 </Row>
               </div>
-
-              {/* Flavor Tier 2 (if multi tier) */}
-              {isMultiTier && (
-                <div className="mb-4 p-3 rounded-3 bg-golden-subtle border border-golden">
-                  <div className="d-flex align-items-center gap-2 mb-2">
-                    <span className="fs-5">🎂</span>
-                    <strong className="text-golden-dark">Top Tier Flavor (Tier 2 / Tier 3)</strong>
-                  </div>
-                  <small className="text-muted d-block mb-3">You can choose a different delicious flavor for your top tier!</small>
-                  <Row className="g-2">
-                    {FLAVORS.map(fl => {
-                      const isFl2Selected = flavorTier2 === fl.id;
-                      return (
-                        <Col sm={6} md={4} key={fl.id}>
-                          <div
-                            onClick={() => setFlavorTier2(fl.id)}
-                            className={`p-2 rounded-3 border h-100 cursor-pointer transition-all ${
-                              isFl2Selected 
-                                ? 'bg-golden-primary text-white border-golden shadow-sm' 
-                                : 'bg-white text-golden-dark border-golden'
-                            }`}
-                            style={{ cursor: 'pointer' }}
-                          >
-                            <div className="fw-semibold small">{fl.name}</div>
-                            {fl.extraPrice > 0 && (
-                              <div className="small opacity-75" style={{ fontSize: '0.7rem' }}>
-                                +₦{fl.extraPrice.toLocaleString()}
-                              </div>
-                            )}
-                          </div>
-                        </Col>
-                      );
-                    })}
-                  </Row>
-                </div>
-              )}
 
               {/* Layer Filling */}
               <div className="pt-2">
@@ -1042,7 +963,7 @@ export default function CustomOrder() {
                   <div className="d-flex justify-content-between">
                     <span className="text-muted">Flavor:</span>
                     <span className="fw-semibold text-golden-dark text-end" style={{ maxWidth: '180px' }}>
-                      {selectedFlavor1Obj.name} {isMultiTier && `& ${selectedFlavor2Obj.name}`}
+                      {selectedFlavorObj.name}
                     </span>
                   </div>
 
@@ -1149,7 +1070,7 @@ export default function CustomOrder() {
                     <strong>📅 How early in advance should I book my custom cake?</strong>
                   </Accordion.Header>
                   <Accordion.Body className="text-muted">
-                    We recommend placing single-tier custom cake orders at least <strong>2 to 4 days in advance</strong>. For multi-tier cakes and wedding cakes, booking <strong>1 to 2 weeks ahead</strong> ensures our bakers can reserve your date and source custom acrylic toppers or specialty florals.
+                    We recommend placing custom cake orders at least <strong>2 to 4 days in advance</strong>. Booking ahead ensures our bakers can reserve your date and source custom acrylic toppers or specialty florals.
                   </Accordion.Body>
                 </Accordion.Item>
 
@@ -1187,4 +1108,4 @@ export default function CustomOrder() {
       </Container>
     </div>
   );
-}
+// }
