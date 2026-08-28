@@ -25,7 +25,7 @@ export default function NavigationBar() {
       <Navbar
         bg="white"
         expand="lg"
-        sticky="top"
+        fixed="top"
         className="shadow-sm py-2 border-bottom border-golden"
         expanded={expanded}
         onToggle={(isExpanded) => setExpanded(isExpanded)}

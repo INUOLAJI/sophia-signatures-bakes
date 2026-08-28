@@ -2,6 +2,8 @@ import React, { useState, useMemo } from 'react';
 import { Container, Row, Col, Card, Form, Button, Badge, Accordion, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { motion, AnimatePresence } from 'framer-motion';
+import { fadeUp, fadeLeft, fadeRight, scaleIn, staggerContainer, cardHover } from '../animations';
 
 const OCCASIONS = [
   { id: 'birthday', name: 'Birthday Celebration 🎂', icon: '🎂' },
@@ -361,9 +363,14 @@ export default function CustomOrder() {
   return (
     <div className="bg-golden-light py-5">
       <Container style={{ maxWidth: '1180px' }}>
-        
+
         {/* Page Header */}
-        <div className="text-center mb-5">
+        <motion.div
+          className="text-center mb-5"
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+        >
           <Badge className="badge-gold-accent px-3 py-2 rounded-pill mb-2 fs-6 shadow-sm">
             ✨ Bespoke & Handcrafted Studio
           </Badge>
@@ -373,39 +380,45 @@ export default function CustomOrder() {
           <p className="text-golden-text-muted fs-5 max-w-2xl mx-auto" style={{ maxWidth: '750px' }}>
             Build your dream celebration cake layer by layer. Customize your tiers, signature flavors, luscious fillings, luxury toppers, and get an instant quote ready for WhatsApp!
           </p>
-          
-          <div className="d-flex justify-content-center gap-3 mt-3 flex-wrap">
-            <span className="badge bg-white text-golden-dark border border-golden px-3 py-2 rounded-pill shadow-sm">
-              ✨ 100% Freshly Baked
-            </span>
-            <span className="badge bg-white text-golden-dark border border-golden px-3 py-2 rounded-pill shadow-sm">
-              🎨 Pinterest & Instagram Themes
-            </span>
-            <span className="badge bg-white text-golden-dark border border-golden px-3 py-2 rounded-pill shadow-sm">
-              💬 Instant WhatsApp Consultation
-            </span>
-          </div>
-        </div>
+          <motion.div
+            className="d-flex justify-content-center gap-3 mt-3 flex-wrap"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            {['✨ 100% Freshly Baked', '🎨 Pinterest & Instagram Themes', '💬 Instant WhatsApp Consultation'].map((label, i) => (
+              <motion.span key={i} custom={i} variants={scaleIn} className="badge bg-white text-golden-dark border border-golden px-3 py-2 rounded-pill shadow-sm">
+                {label}
+              </motion.span>
+            ))}
+          </motion.div>
+        </motion.div>
 
-        {addedToCartSuccess && (
-          <Alert variant="success" className="rounded-4 border-0 shadow-sm mb-4 d-flex align-items-center justify-content-between">
-            <div className="d-flex align-items-center gap-2">
-              <span className="fs-4">🎉</span>
-              <div>
-                <strong>Custom Cake Added to Cart!</strong> You can continue designing or proceed to checkout.
-              </div>
-            </div>
-            <Button as={Link} to="/order" size="sm" className="btn-golden rounded-pill px-3">
-              View Cart →
-            </Button>
-          </Alert>
-        )}
+        <AnimatePresence>
+          {addedToCartSuccess && (
+            <motion.div
+              initial={{ opacity: 0, y: -16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.35 }}
+            >
+              <Alert variant="success" className="rounded-4 border-0 shadow-sm mb-4 d-flex align-items-center justify-content-between">
+                <div className="d-flex align-items-center gap-2">
+                  <span className="fs-4">🎉</span>
+                  <div><strong>Custom Cake Added to Cart!</strong> You can continue designing or proceed to checkout.</div>
+                </div>
+                <Button as={Link} to="/order" size="sm" className="btn-golden rounded-pill px-3">View Cart →</Button>
+              </Alert>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <Row className="g-4">
           {/* Main Customization Column */}
           <Col lg={8}>
-            
+
             {/* Step 1: Occasion */}
+            <motion.div variants={fadeLeft} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }}>
             <Card className="border-0 shadow-sm rounded-4 p-4 mb-4 bg-white border border-golden">
               <div className="d-flex align-items-center gap-3 mb-3">
                 <span className="badge bg-golden-primary rounded-circle p-2 fs-6" style={{ width: '36px', height: '36px', display: 'grid', placeItems: 'center' }}>
@@ -418,25 +431,30 @@ export default function CustomOrder() {
               </div>
 
               <div className="d-flex flex-wrap gap-2 pt-2">
-                {OCCASIONS.map(occ => (
-                  <button
+                {OCCASIONS.map((occ, i) => (
+                  <motion.button
                     key={occ.id}
                     type="button"
                     onClick={() => setOccasion(occ.id)}
-                    className={`btn rounded-pill px-3 py-2 text-start transition-all ${
-                      occasion === occ.id
-                        ? 'btn-golden text-white shadow-sm'
-                        : 'btn-outline-golden text-golden-dark bg-white'
+                    className={`btn rounded-pill px-3 py-2 text-start ${
+                      occasion === occ.id ? 'btn-golden text-white shadow-sm' : 'btn-outline-golden text-golden-dark bg-white'
                     }`}
                     style={{ fontSize: '0.9rem' }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.93 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.04, duration: 0.3 }}
                   >
                     {occ.name}
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             </Card>
+            </motion.div>
 
             {/* Step 2: Size, Tiers & Shape */}
+            <motion.div variants={fadeLeft} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
             <Card className="border-0 shadow-sm rounded-4 p-4 mb-4 bg-white border border-golden">
               <div className="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
                 <div className="d-flex align-items-center gap-3">
@@ -468,17 +486,20 @@ export default function CustomOrder() {
               </div>
 
               {/* Cake Size Grid */}
+              <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <Row className="g-3 mb-4">
-                {filteredCakeSizes.map((cake) => {
+                {filteredCakeSizes.map((cake, idx) => {
                   const isSelected = selectedSizeId === cake.id;
                   return (
                     <Col sm={6} md={4} key={cake.id}>
-                      <div
+                      <motion.div
+                        custom={idx}
+                        variants={scaleIn}
+                        whileHover={{ scale: 1.03, y: -4 }}
+                        whileTap={{ scale: 0.97 }}
                         onClick={() => setSelectedSizeId(cake.id)}
-                        className={`rounded-4 h-100 cursor-pointer border transition-all position-relative d-flex flex-column justify-content-between overflow-hidden ${
-                          isSelected
-                            ? 'border-2 border-golden bg-golden-subtle shadow-md'
-                            : 'border-golden bg-white card-hover'
+                        className={`rounded-4 h-100 border position-relative d-flex flex-column justify-content-between overflow-hidden ${
+                          isSelected ? 'border-2 border-golden bg-golden-subtle shadow-md' : 'border-golden bg-white'
                         }`}
                         style={{ cursor: 'pointer' }}
                       >
@@ -513,19 +534,18 @@ export default function CustomOrder() {
                           </div>
 
                           <div className="mt-3 pt-2 border-top border-golden d-flex justify-content-between align-items-center">
-                            <span className="fw-bold text-golden fs-6">
-                              ₦{cake.price.toLocaleString()}
-                            </span>
+                            <span className="fw-bold text-golden fs-6">₦{cake.price.toLocaleString()}</span>
                             <span className={`small fw-semibold ${isSelected ? 'text-golden-dark fw-bold' : 'text-muted'}`}>
                               {isSelected ? '✓ Selected' : 'Select'}
                             </span>
                           </div>
                         </div>
-                      </div>
+                      </motion.div>
                     </Col>
                   );
                 })}
               </Row>
+              </motion.div>
 
               {/* Cake Shape Option */}
               <div className="pt-3 border-top border-golden">

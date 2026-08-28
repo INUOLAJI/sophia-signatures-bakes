@@ -10,7 +10,20 @@ import CustomOrder from './pages/CustomOrder';
 import { CartProvider, useCart } from './context/CartContext';
 import { BsCart3 } from 'react-icons/bs';
 import { motion, AnimatePresence } from 'framer-motion';
-import { fadeUp, staggerContainer } from './animations';
+import { fadeUp, staggerContainer, pageTransition } from './animations';
+
+function PageTransition({ children }) {
+  return (
+    <motion.div
+      variants={pageTransition}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 function PageLoaderWrapper({ children }) {
   const [loading, setLoading] = useState(true);
@@ -18,26 +31,16 @@ function PageLoaderWrapper({ children }) {
 
   useEffect(() => {
     setLoading(true);
-    const timer = setTimeout(() => setLoading(false), 500);
+    const timer = setTimeout(() => setLoading(false), 480);
     return () => clearTimeout(timer);
   }, [location.pathname]);
 
   return (
     <>
       <Preloader loading={loading} />
-      <AnimatePresence mode="wait">
-        {!loading && (
-          <motion.div
-            key={location.pathname}
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          >
-            {children}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div style={{ visibility: loading ? 'hidden' : 'visible' }}>
+        {children}
+      </div>
     </>
   );
 }
@@ -89,6 +92,21 @@ function FloatingCartButton() {
   );
 }
 
+function AppRoutes() {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+        <Route path="/menu" element={<PageTransition><Menu /></PageTransition>} />
+        <Route path="/custom-order" element={<PageTransition><CustomOrder /></PageTransition>} />
+        <Route path="/order" element={<PageTransition><Order /></PageTransition>} />
+        <Route path="/flavor-details" element={<PageTransition><FlavorDetails /></PageTransition>} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
 export default function App() {
   return (
     <CartProvider>
@@ -97,13 +115,7 @@ export default function App() {
           <div className="min-h-screen d-flex flex-column justify-content-between bg-golden-light">
             <div>
               <NavigationBar />
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/menu" element={<Menu />} />
-                <Route path="/custom-order" element={<CustomOrder />} />
-                <Route path="/order" element={<Order />} />
-                <Route path="/flavor-details" element={<FlavorDetails />} />
-              </Routes>
+              <AppRoutes />
             </div>
 
             <FloatingCartButton />
