@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Card, Form, Button, Accordion, Row, Col, Badge, Table } from 'react-bootstrap';
+import { Container, Card, Form, Button, Accordion, Row, Col, Badge, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
@@ -60,6 +60,8 @@ export default function Order() {
     notes: '' 
   });
 
+  const [orderSubmitted, setOrderSubmitted] = useState(false);
+
   const handleWhatsAppOrder = (e) => {
     e.preventDefault();
 
@@ -100,6 +102,10 @@ export default function Order() {
                `✨ *Order sent from Sophia's Signature Bakes Website*`;
 
     window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+
+    // Immediately clear the cart and open confirmation state
+    clearCart();
+    setOrderSubmitted(true);
   };
 
   return (
@@ -238,7 +244,7 @@ export default function Order() {
 
                         {/* Remove */}
                         <button 
-                          type="button"
+                          type="button" 
                           className="btn btn-sm text-danger p-0"
                           title="Remove item"
                           onClick={() => removeFromCart(item.key)}
@@ -412,6 +418,29 @@ export default function Order() {
           </Accordion.Item>
         ))}
       </Accordion>
+
+      {/* Order Placed Success Modal */}
+      <Modal show={orderSubmitted} onHide={() => setOrderSubmitted(false)} centered>
+        <Modal.Header closeButton className="border-golden bg-golden-light">
+          <Modal.Title className="fw-bold text-golden-dark fs-5" style={{ fontFamily: "'Playfair Display', serif" }}>
+            🎉 Order Forwarded to WhatsApp!
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="p-4 text-center">
+          <div className="fs-1 mb-3">💬✨</div>
+          <h5 className="fw-bold text-golden-dark mb-2">Thank you, {formData.name || 'valued customer'}!</h5>
+          <p className="text-muted small mb-3">
+            Your full order details have been forwarded to <strong>Sophia's Signature Bakes (09118784051)</strong> on WhatsApp.
+          </p>
+          <div className="p-3 bg-golden-subtle rounded-3 border border-golden text-start small text-muted mb-3">
+            ✅ <strong>Your cart has been cleared.</strong><br/>
+            ✅ <strong>Next Step:</strong> Simply hit "Send" inside WhatsApp to finalize your delivery date & payment.
+          </div>
+          <Button as={Link} to="/menu" onClick={() => setOrderSubmitted(false)} className="btn-golden rounded-pill px-4">
+            Browse Menu & Order More
+          </Button>
+        </Modal.Body>
+      </Modal>
     </Container>
   );
 }
