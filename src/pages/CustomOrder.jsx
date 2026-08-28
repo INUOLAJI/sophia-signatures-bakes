@@ -358,11 +358,6 @@ export default function CustomOrder() {
     setTimeout(() => setAddedToCartSuccess(false), 4000);
   };
 
-    addToCart(customItem, 1, customItem.flavor, summary);
-    setAddedToCartSuccess(true);
-    setTimeout(() => setAddedToCartSuccess(false), 4000);
-  };
-
   return (
     <div className="bg-golden-light py-5">
       <Container style={{ maxWidth: '1180px' }}>
@@ -1108,4 +1103,4 @@ export default function CustomOrder() {
       </Container>
     </div>
   );
-// }
+}
