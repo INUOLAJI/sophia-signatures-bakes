@@ -26,7 +26,7 @@ const CAKE_TIERS_AND_SIZES = [
     servings: '1 - 2 portions', 
     desc: 'Cute mini lunchbox cake, perfect for intimate surprises & gifting',
     badge: 'Popular Gift',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=600'
+    image: '/cake4inchestakeaway.jpeg'
   },
   { 
     id: 'bento_board', 
@@ -36,7 +36,7 @@ const CAKE_TIERS_AND_SIZES = [
     servings: '2 - 3 portions', 
     desc: 'Bento size presented elegantly on a sturdy decorated cake board',
     badge: 'Mini Board',
-    image: 'https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?auto=format&fit=crop&q=80&w=600'
+    image: '/fourinchesboard.jpeg'
   },
   // Single Tier Cakes
   { 
@@ -47,7 +47,7 @@ const CAKE_TIERS_AND_SIZES = [
     servings: '4 - 6 portions', 
     desc: 'Ideal for small intimate gatherings & family dinners',
     badge: 'Standard',
-    image: 'https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&q=80&w=600'
+    image: '/6inchesboard.jpeg'
   },
   { 
     id: 'single_7', 
@@ -57,7 +57,7 @@ const CAKE_TIERS_AND_SIZES = [
     servings: '8 - 10 portions', 
     desc: 'Standard party cake size with balanced height and portioning',
     badge: 'Party Favorite',
-    image: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&q=80&w=600'
+    image: '/7inchesboard.jpeg'
   },
   { 
     id: 'single_8', 
@@ -67,7 +67,7 @@ const CAKE_TIERS_AND_SIZES = [
     servings: '12 - 15 portions', 
     desc: 'Our most requested size for birthday celebrations and parties',
     badge: 'Best Seller ⭐',
-    image: 'https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&q=80&w=600'
+    image: '/8inchesboard.jpeg'
   },
   { 
     id: 'single_9', 
@@ -77,7 +77,7 @@ const CAKE_TIERS_AND_SIZES = [
     servings: '18 - 22 portions', 
     desc: 'Substantial celebration cake for big groups and reunions',
     badge: 'Family Size',
-    image: 'https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&q=80&w=600'
+    image: '/9inchesboard.jpeg'
   },
   { 
     id: 'single_10', 
@@ -87,7 +87,7 @@ const CAKE_TIERS_AND_SIZES = [
     servings: '25 - 30 portions', 
     desc: 'Generous single tier centerpiece for large celebrations',
     badge: 'Crowd Pleaser',
-    image: 'https://images.unsplash.com/photo-1506459225024-1428097a7e18?auto=format&fit=crop&q=80&w=600'
+    image: '/10inchesboard.jpeg'
   },
   { 
     id: 'single_11', 
@@ -97,7 +97,7 @@ const CAKE_TIERS_AND_SIZES = [
     servings: '35 - 40 portions', 
     desc: 'Grand luxury single-tier statement piece',
     badge: 'Grand Feast',
-    image: 'https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&q=80&w=600'
+    image: '/11inchesboard.jpeg'
   },
   { 
     id: 'single_12', 
@@ -107,38 +107,38 @@ const CAKE_TIERS_AND_SIZES = [
     servings: '45 - 50+ portions', 
     desc: 'Extra-large celebration masterpiece for lavish events',
     badge: 'Showstopper',
-    image: 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&q=80&w=600'
+    image: '/12inchesboard.jpeg'
   },
   // Multi-Tier Luxury
   { 
     id: 'tier_2_small', 
     name: '2-Tier Celebration Cake (6" + 8")', 
     category: 'Multi-Tier',
-    price: 42000, 
+    // price: 42000, 
     servings: '20 - 25 portions', 
     desc: 'Stunning stacked 2-tier cake with custom doweling & support',
     badge: '2-Tier Luxury',
-    image: 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&q=80&w=600'
+    image: '/8inchesboard.jpeg'
   },
   { 
     id: 'tier_2_large', 
     name: '2-Tier Grand Cake (8" + 10")', 
     category: 'Multi-Tier',
-    price: 62000, 
+    // price: 62000, 
     servings: '40 - 45 portions', 
     desc: 'Tall dramatic two-tier presentation for milestone birthdays & weddings',
     badge: 'Grand 2-Tier',
-    image: 'https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&q=80&w=600'
+    image: '/10inchesboard.jpeg'
   },
   { 
     id: 'tier_3_wedding', 
     name: '3-Tier Luxury Wedding Cake (6" + 8" + 10")', 
     category: 'Multi-Tier',
-    price: 95000, 
+    // price: 95000, 
     servings: '65 - 75+ portions', 
     desc: 'Lavish three-tier showpiece with structural tier support & bespoke design',
     badge: 'Wedding Masterpiece',
-    image: 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&q=80&w=600'
+    image: '/12inchesboard.jpeg'
   },
 ];
 
@@ -155,39 +155,12 @@ const FLAVORS = [
   { id: 'red_velvet', name: 'Velvet Red Velvet', extraPrice: 0, note: 'Silky smooth ruby crumb with hint of cocoa' },
   { id: 'strawberry', name: 'Strawberry Bliss', extraPrice: 0, note: 'Infused with delicate natural strawberry essence' },
   { id: 'marble', name: 'Marble Swirl (Vanilla + Chocolate)', extraPrice: 1500, note: 'Best of both worlds swirled into every slice' },
-  { id: 'coconut', name: 'Tropical Coconut Flake', extraPrice: 1500, note: 'Moist coconut infused cake crumb' },
-  { id: 'fruit_cake', name: 'Rich Mature Fruit Cake', extraPrice: 3500, note: 'Traditional rich fruit & spice cake for weddings' },
 ];
 
 const FILLINGS = [
   { id: 'vanilla_buttercream', name: 'Signature Vanilla Buttercream', extraPrice: 0 },
   { id: 'chocolate_ganache', name: 'Rich Chocolate Ganache Fudge', extraPrice: 1000 },
-  { id: 'salted_caramel', name: 'Salted Caramel Drizzle & Cream', extraPrice: 1200 },
   { id: 'strawberry_compote', name: 'Fresh Strawberry Fruit Compote', extraPrice: 1200 },
-  { id: 'nutella_cream', name: 'Creamy Nutella Hazelnut Swirl', extraPrice: 1500 },
-  { id: 'cream_cheese', name: 'Velvety Cream Cheese Filling', extraPrice: 1500 },
-];
-
-const FROSTING_STYLES = [
-  { id: 'smooth_buttercream', name: 'Smooth Buttercream (Modern Chic)', desc: 'Flawless silky smooth edges' },
-  { id: 'vintage_lambeth', name: 'Vintage Lambeth & Ruffle Piping', desc: 'Trending ornate Victorian piping with pearl dots & frills (+₦2,000)' },
-  { id: 'whipped_cream', name: 'Light Whipped Cream Finish', desc: 'Soft, airy, delicate sweetness' },
-  { id: 'semi_naked', name: 'Semi-Naked / Rustic Boho', desc: 'Exposed sponge layers with subtle frosting' },
-  { id: 'chocolate_drip', name: 'Gourmet Chocolate / Gold Drip', desc: 'Glossy chocolate or metallic gold drip cascading down the sides (+₦1,500)' },
-  { id: 'fondant_cover', name: 'Full Luxury Fondant Wrap', desc: 'Sculpted pristine fondant covering for intricate themes (+₦5,000)' },
-];
-
-const COLOR_PALETTES = [
-  'White & Elegant Gold',
-  'Blush Pastel Pink & Gold',
-  'Emerald Green & Gold Luxury',
-  'Midnight Black & Gold Accent',
-  'Royal Navy Blue & Silver',
-  'Lilac, Lavender & White',
-  'Earthy Terracotta & Nude',
-  'Pastel Mint & Butter Yellow',
-  'All White Minimalist Pure',
-  'Custom Color Palette (Specify in Notes)'
 ];
 
 const LUXURY_ADDONS = [
@@ -220,9 +193,6 @@ export default function CustomOrder() {
   const [flavorTier1, setFlavorTier1] = useState('red_velvet');
   const [flavorTier2, setFlavorTier2] = useState('vanilla');
   const [fillingId, setFillingId] = useState('vanilla_buttercream');
-  const [frostingStyleId, setFrostingStyleId] = useState('smooth_buttercream');
-  const [colorPalette, setColorPalette] = useState('White & Elegant Gold');
-  const [customColorText, setCustomColorText] = useState('');
   const [cakeInscription, setCakeInscription] = useState('');
   
   // Luxury Add-ons & Combos (sets of IDs)
@@ -263,10 +233,6 @@ export default function CustomOrder() {
     return FILLINGS.find(fl => fl.id === fillingId) || FILLINGS[0];
   }, [fillingId]);
 
-  const selectedFrostingObj = useMemo(() => {
-    return FROSTING_STYLES.find(fs => fs.id === frostingStyleId) || FROSTING_STYLES[0];
-  }, [frostingStyleId]);
-
   const isMultiTier = selectedSizeObj.category === 'Multi-Tier';
 
   // Toggle addons
@@ -282,14 +248,6 @@ export default function CustomOrder() {
       prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]
     );
   };
-
-  // Extra style pricing
-  const styleExtraPrice = useMemo(() => {
-    if (frostingStyleId === 'vintage_lambeth') return 2000;
-    if (frostingStyleId === 'chocolate_drip') return 1500;
-    if (frostingStyleId === 'fondant_cover') return 5000;
-    return 0;
-  }, [frostingStyleId]);
 
   // Addons total
   const addonsTotal = useMemo(() => {
@@ -320,11 +278,10 @@ export default function CustomOrder() {
   const estimatedTotal = useMemo(() => {
     return selectedSizeObj.price + 
       selectedShapeObj.extraPrice + 
-      styleExtraPrice + 
       flavorsExtraTotal + 
       addonsTotal + 
       combosTotal;
-  }, [selectedSizeObj, selectedShapeObj, styleExtraPrice, flavorsExtraTotal, addonsTotal, combosTotal]);
+  }, [selectedSizeObj, selectedShapeObj, flavorsExtraTotal, addonsTotal, combosTotal]);
 
   // Filtered Cake Sizes
   const filteredCakeSizes = useMemo(() => {
@@ -335,9 +292,6 @@ export default function CustomOrder() {
   // Build text breakdown summary for WhatsApp or Cart
   const buildCustomOrderSummary = () => {
     const occObj = OCCASIONS.find(o => o.id === occasion);
-    const chosenColor = colorPalette === 'Custom Color Palette (Specify in Notes)' && customColorText
-      ? `Custom (${customColorText})`
-      : colorPalette;
 
     const addonsList = selectedAddons.map(id => {
       const a = LUXURY_ADDONS.find(x => x.id === id);
@@ -358,8 +312,6 @@ export default function CustomOrder() {
       flavorTier1: selectedFlavor1Obj.name,
       flavorTier2: isMultiTier ? selectedFlavor2Obj.name : null,
       filling: selectedFillingObj.name,
-      frostingStyle: selectedFrostingObj.name,
-      colorPalette: chosenColor,
       inscription: cakeInscription || 'None requested',
       addons: addonsList,
       combos: combosList,
@@ -416,8 +368,6 @@ export default function CustomOrder() {
       `   • *Shape:* ${encodeURIComponent(summary.shape)}%0A` +
       `   • *Flavors:*%0A${flavorsText}%0A` +
       `   • *Filling:* ${encodeURIComponent(summary.filling)}%0A` +
-      `   • *Design / Finish:* ${encodeURIComponent(summary.frostingStyle)}%0A` +
-      `   • *Color Palette:* ${encodeURIComponent(summary.colorPalette)}%0A` +
       `   • *Cake Inscription / Topper Text:* "${encodeURIComponent(summary.inscription)}"%0A%0A` +
       `✨ *SELECTED LUXURY ADD-ONS & TOPPERS:*%0A` +
       addonsText + `%0A%0A`;
@@ -469,7 +419,7 @@ export default function CustomOrder() {
             Design Your Custom Cake
           </h1>
           <p className="text-golden-text-muted fs-5 max-w-2xl mx-auto" style={{ maxWidth: '750px' }}>
-            Build your dream celebration cake layer by layer. Customize your tiers, signature flavors, velvet frosting styles, luxury toppers, and get an instant quote ready for WhatsApp!
+            Build your dream celebration cake layer by layer. Customize your tiers, signature flavors, luscious fillings, luxury toppers, and get an instant quote ready for WhatsApp!
           </p>
           
           <div className="d-flex justify-content-center gap-3 mt-3 flex-wrap">
@@ -573,45 +523,51 @@ export default function CustomOrder() {
                     <Col sm={6} md={4} key={cake.id}>
                       <div
                         onClick={() => setSelectedSizeId(cake.id)}
-                        className={`p-3 rounded-4 h-100 cursor-pointer border transition-all position-relative d-flex flex-column justify-content-between ${
+                        className={`rounded-4 h-100 cursor-pointer border transition-all position-relative d-flex flex-column justify-content-between overflow-hidden ${
                           isSelected
                             ? 'border-2 border-golden bg-golden-subtle shadow-md'
                             : 'border-golden bg-white card-hover'
                         }`}
-                        style={{ cursor: 'pointer', minHeight: '180px' }}
+                        style={{ cursor: 'pointer' }}
                       >
-                        {cake.badge && (
-                          <span 
-                            className={`badge position-absolute top-0 end-0 m-2 rounded-pill ${
-                              isSelected ? 'bg-golden-dark text-white' : 'badge-gold-accent'
-                            }`}
-                            style={{ fontSize: '0.7rem' }}
-                          >
-                            {cake.badge}
-                          </span>
-                        )}
-                        <div>
-                          <div className="d-flex align-items-center gap-2 mb-2">
-                            <span className="fs-4">🎂</span>
-                            <h6 className="fw-bold text-golden-dark mb-0 lh-sm" style={{ fontSize: '0.95rem' }}>
+                        <div className="position-relative" style={{ height: '140px' }}>
+                          <img 
+                            src={cake.image} 
+                            alt={cake.name}
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                          />
+                          {cake.badge && (
+                            <span 
+                              className={`badge position-absolute top-0 end-0 m-2 rounded-pill shadow-sm ${
+                                isSelected ? 'bg-golden-dark text-white' : 'badge-gold-accent'
+                              }`}
+                              style={{ fontSize: '0.7rem' }}
+                            >
+                              {cake.badge}
+                            </span>
+                          )}
+                        </div>
+                        <div className="p-3 d-flex flex-column justify-content-between flex-grow-1">
+                          <div>
+                            <h6 className="fw-bold text-golden-dark mb-1 lh-sm" style={{ fontSize: '0.95rem' }}>
                               {cake.name}
                             </h6>
+                            <div className="badge bg-white text-golden-dark border border-golden mb-2" style={{ fontSize: '0.75rem' }}>
+                              👥 {cake.servings}
+                            </div>
+                            <p className="text-muted small mb-0 lh-sm" style={{ fontSize: '0.8rem' }}>
+                              {cake.desc}
+                            </p>
                           </div>
-                          <div className="badge bg-white text-golden-dark border border-golden mb-2" style={{ fontSize: '0.75rem' }}>
-                            👥 {cake.servings}
-                          </div>
-                          <p className="text-muted small mb-0 lh-sm" style={{ fontSize: '0.8rem' }}>
-                            {cake.desc}
-                          </p>
-                        </div>
 
-                        <div className="mt-3 pt-2 border-top border-golden d-flex justify-content-between align-items-center">
-                          <span className="fw-bold text-golden fs-6">
-                            ₦{cake.price.toLocaleString()}
-                          </span>
-                          <span className={`small fw-semibold ${isSelected ? 'text-golden-dark fw-bold' : 'text-muted'}`}>
-                            {isSelected ? '✓ Selected' : 'Select'}
-                          </span>
+                          <div className="mt-3 pt-2 border-top border-golden d-flex justify-content-between align-items-center">
+                            <span className="fw-bold text-golden fs-6">
+                              ₦{cake.price.toLocaleString()}
+                            </span>
+                            <span className={`small fw-semibold ${isSelected ? 'text-golden-dark fw-bold' : 'text-muted'}`}>
+                              {isSelected ? '✓ Selected' : 'Select'}
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </Col>
@@ -769,96 +725,12 @@ export default function CustomOrder() {
               </div>
             </Card>
 
-            {/* Step 4: Frosting Style & Color Palette */}
-            <Card className="border-0 shadow-sm rounded-4 p-4 mb-4 bg-white border border-golden">
-              <div className="d-flex align-items-center gap-3 mb-3">
-                <span className="badge bg-golden-primary rounded-circle p-2 fs-6" style={{ width: '36px', height: '36px', display: 'grid', placeItems: 'center' }}>
-                  4
-                </span>
-                <div>
-                  <h4 className="fw-bold text-golden-dark mb-0 fs-5">Design Finish & Color Palette</h4>
-                  <small className="text-muted">Pick your exterior texture, frosting look, and thematic colors</small>
-                </div>
-              </div>
-
-              {/* Frosting Style */}
-              <div className="mb-4">
-                <label className="fw-bold text-golden-dark mb-2 d-block small text-uppercase" style={{ letterSpacing: '0.5px' }}>
-                  Exterior Frosting Finish
-                </label>
-                <Row className="g-2">
-                  {FROSTING_STYLES.map(style => {
-                    const isStyleSelected = frostingStyleId === style.id;
-                    return (
-                      <Col sm={6} key={style.id}>
-                        <div
-                          onClick={() => setFrostingStyleId(style.id)}
-                          className={`p-3 rounded-3 border h-100 cursor-pointer transition-all ${
-                            isStyleSelected 
-                              ? 'bg-golden-subtle border-2 border-golden shadow-sm' 
-                              : 'bg-white border-golden'
-                          }`}
-                          style={{ cursor: 'pointer' }}
-                        >
-                          <strong className="text-golden-dark d-block small mb-1">{style.name}</strong>
-                          <span className="text-muted small" style={{ fontSize: '0.8rem' }}>{style.desc}</span>
-                        </div>
-                      </Col>
-                    );
-                  })}
-                </Row>
-              </div>
-
-              {/* Color Palette */}
-              <div className="mb-4 pt-2 border-top border-golden">
-                <label className="fw-bold text-golden-dark mb-2 d-block small text-uppercase" style={{ letterSpacing: '0.5px' }}>
-                  Theme Color Palette
-                </label>
-                <Form.Select 
-                  value={colorPalette} 
-                  onChange={(e) => setColorPalette(e.target.value)}
-                  className="rounded-3 border-golden p-2 fw-semibold text-golden-dark mb-2"
-                >
-                  {COLOR_PALETTES.map((pal, idx) => (
-                    <option key={idx} value={pal}>{pal}</option>
-                  ))}
-                </Form.Select>
-
-                {colorPalette.includes('Custom') && (
-                  <Form.Control
-                    type="text"
-                    placeholder="Specify your custom colors (e.g., Peach, Rose Gold & Sage Green)"
-                    value={customColorText}
-                    onChange={(e) => setCustomColorText(e.target.value)}
-                    className="rounded-3 border-golden mt-2"
-                  />
-                )}
-              </div>
-
-              {/* Cake Inscription */}
-              <div className="pt-2 border-top border-golden">
-                <label className="fw-bold text-golden-dark mb-1 d-block">
-                  Custom Cake / Board Inscription (Optional)
-                </label>
-                <small className="text-muted d-block mb-2">
-                  What message or name would you like written on the cake or board?
-                </small>
-                <Form.Control
-                  type="text"
-                  placeholder='e.g., "Happy 30th Birthday Queen Anita!", "Happy Anniversary Dearest"'
-                  value={cakeInscription}
-                  onChange={(e) => setCakeInscription(e.target.value)}
-                  className="rounded-3 border-golden"
-                />
-              </div>
-            </Card>
-
-            {/* Step 5: Luxury Add-ons & Toppers */}
+            {/* Step 4: Luxury Add-ons & Toppers */}
             <Card className="border-0 shadow-sm rounded-4 p-4 mb-4 bg-white border border-golden">
               <div className="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
                 <div className="d-flex align-items-center gap-3">
                   <span className="badge bg-golden-primary rounded-circle p-2 fs-6" style={{ width: '36px', height: '36px', display: 'grid', placeItems: 'center' }}>
-                    5
+                    4
                   </span>
                   <div>
                     <h4 className="fw-bold text-golden-dark mb-0 fs-5">Luxury Toppers & Decor Add-ons</h4>
@@ -911,12 +783,12 @@ export default function CustomOrder() {
               </Row>
             </Card>
 
-            {/* Step 6: Party Combos & Small Chops Platter */}
+            {/* Step 5: Party Combos & Small Chops Platter */}
             <Card className="border-0 shadow-sm rounded-4 p-4 mb-4 bg-white border border-golden">
               <div className="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
                 <div className="d-flex align-items-center gap-3">
                   <span className="badge bg-golden-primary rounded-circle p-2 fs-6" style={{ width: '36px', height: '36px', display: 'grid', placeItems: 'center' }}>
-                    6
+                    5
                   </span>
                   <div>
                     <h4 className="fw-bold text-golden-dark mb-0 fs-5">Add Party Snacks & Combos (Optional)</h4>
@@ -966,11 +838,11 @@ export default function CustomOrder() {
               </Row>
             </Card>
 
-            {/* Step 7: Customer & Delivery Details */}
+            {/* Step 6: Customer & Delivery Details */}
             <Card className="border-0 shadow-sm rounded-4 p-4 mb-4 bg-white border border-golden">
               <div className="d-flex align-items-center gap-3 mb-3">
                 <span className="badge bg-golden-primary rounded-circle p-2 fs-6" style={{ width: '36px', height: '36px', display: 'grid', placeItems: 'center' }}>
-                  7
+                  6
                 </span>
                 <div>
                   <h4 className="fw-bold text-golden-dark mb-0 fs-5">Event Date & Delivery Details</h4>
@@ -1067,7 +939,7 @@ export default function CustomOrder() {
                     <Form.Group>
                       <Form.Label className="fw-bold small text-golden-dark">Delivery Address & Landmark</Form.Label>
                       <Form.Control 
-                        type="text"
+                        type="text" 
                         placeholder="House / Street address, estate name, nearest landmark & city area"
                         value={deliveryAddress}
                         onChange={(e) => setDeliveryAddress(e.target.value)}
@@ -1080,11 +952,26 @@ export default function CustomOrder() {
                 <Col sm={12}>
                   <Form.Group>
                     <Form.Label className="fw-bold small text-golden-dark">
+                      Custom Cake / Board Inscription (Optional)
+                    </Form.Label>
+                    <Form.Control 
+                      type="text" 
+                      placeholder='e.g., "Happy 30th Birthday Queen Anita!", "Happy Anniversary Dearest"'
+                      value={cakeInscription}
+                      onChange={(e) => setCakeInscription(e.target.value)}
+                      className="rounded-3 border-golden"
+                    />
+                  </Form.Group>
+                </Col>
+
+                <Col sm={12}>
+                  <Form.Group>
+                    <Form.Label className="fw-bold small text-golden-dark">
                       Special Design Instructions & Pinterest / Photo Notes
                     </Form.Label>
                     <Form.Control 
-                      as="textarea"
-                      rows={3}
+                      as="textarea" 
+                      rows={3} 
                       placeholder="Describe your theme (e.g. vintage ribbons, crown topper, floral placement, dietary allergies, or mention that you will send a photo via WhatsApp)..."
                       value={designNotes}
                       onChange={(e) => setDesignNotes(e.target.value)}
@@ -1125,11 +1012,19 @@ export default function CustomOrder() {
 
                 {/* Selected Cake Preview */}
                 <div className="p-3 rounded-3 bg-golden-subtle mb-3 border border-golden">
-                  <div className="d-flex justify-content-between align-items-start mb-1">
-                    <strong className="text-golden-dark fs-6">{selectedSizeObj.name}</strong>
-                    <span className="fw-bold text-golden">₦{selectedSizeObj.price.toLocaleString()}</span>
+                  <div className="d-flex gap-3 align-items-center mb-2">
+                    <img 
+                      src={selectedSizeObj.image} 
+                      alt={selectedSizeObj.name} 
+                      className="rounded-3 shadow-sm border border-golden" 
+                      style={{ width: '60px', height: '60px', objectFit: 'cover' }} 
+                    />
+                    <div className="flex-grow-1">
+                      <strong className="text-golden-dark fs-6 d-block lh-sm">{selectedSizeObj.name}</strong>
+                      <span className="fw-bold text-golden">₦{selectedSizeObj.price.toLocaleString()}</span>
+                    </div>
                   </div>
-                  <div className="small text-muted mb-2">
+                  <div className="small text-muted mb-1">
                     Shape: <strong>{selectedShapeObj.name}</strong> {selectedShapeObj.extraPrice > 0 && `(+₦${selectedShapeObj.extraPrice.toLocaleString()})`}
                   </div>
                   <div className="small text-muted">
@@ -1154,18 +1049,6 @@ export default function CustomOrder() {
                   <div className="d-flex justify-content-between">
                     <span className="text-muted">Filling:</span>
                     <span className="fw-semibold text-golden-dark text-end">{selectedFillingObj.name}</span>
-                  </div>
-
-                  <div className="d-flex justify-content-between">
-                    <span className="text-muted">Style:</span>
-                    <span className="fw-semibold text-golden-dark text-end">{selectedFrostingObj.name}</span>
-                  </div>
-
-                  <div className="d-flex justify-content-between">
-                    <span className="text-muted">Theme / Colors:</span>
-                    <span className="fw-semibold text-golden-dark text-end" style={{ maxWidth: '170px' }}>
-                      {colorPalette.includes('Custom') && customColorText ? customColorText : colorPalette}
-                    </span>
                   </div>
 
                   {cakeInscription && (

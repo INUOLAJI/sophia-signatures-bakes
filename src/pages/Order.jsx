@@ -84,8 +84,8 @@ export default function Order() {
         const d = item.customDetails;
         customSpecs = `%0A     • Occasion: ${encodeURIComponent(d.occasion)}` +
           `%0A     • Shape: ${encodeURIComponent(d.shape)}` +
-          `%0A     • Finish: ${encodeURIComponent(d.frostingStyle)}` +
-          `%0A     • Theme: ${encodeURIComponent(d.colorPalette)}` +
+          (d.frostingStyle ? `%0A     • Finish: ${encodeURIComponent(d.frostingStyle)}` : '') +
+          (d.colorPalette ? `%0A     • Theme: ${encodeURIComponent(d.colorPalette)}` : '') +
           (d.inscription && d.inscription !== 'None requested' ? `%0A     • Text: "${encodeURIComponent(d.inscription)}"` : '') +
           (d.addons && d.addons.length > 0 ? `%0A     • Add-ons: ${encodeURIComponent(d.addons.join(', '))}` : '');
       }

@@ -7,21 +7,21 @@ const FEATURED_CATEGORIES = [
     title: 'Custom Celebration Cakes', 
     desc: 'From 4" Bento Takeaways to grand 12" luxury cakes. Starting from ₦10,000.',
     priceBadge: 'From ₦10,000',
-    image: 'https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?auto=format&fit=crop&q=80&w=800',
+    image: '/8inchesboard.jpeg',
     link: '/menu'
   },
   { 
     title: 'Small Chops & Finger Foods', 
     desc: 'Crispy samosas, spring rolls, fluffy puff puff, and seasoned beef plates & big boxes.', 
     priceBadge: 'From ₦2,500',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=800',
+    image: '/smallchops.jpeg',
     link: '/menu'
   },
   { 
     title: 'Pastries, Doughnuts & Parfaits', 
     desc: 'Golden meat pies, chicken pies, milky doughnuts, foil cakes, and rich cake parfaits.', 
     priceBadge: 'From ₦700',
-    image: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&q=80&w=800',
+    image: '/milkydoughnut.jpeg',
     link: '/menu'
   },
 ];
@@ -31,25 +31,25 @@ const SIGNATURE_FLAVORS = [
     name: 'Classic Vanilla',
     desc: 'Soft, Moist & Buttery Vanilla',
     tag: 'Classic Favorite',
-    image: 'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&q=80&w=600'
+    image: '/vanillaflavour.jpeg'
   },
   {
     name: 'Dark Chocolate',
     desc: 'Deep, Rich & Moist Chocolate',
     tag: 'Best Seller',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=600'
+    image: '/chocolateflavour.jpeg'
   },
   {
     name: 'Red Velvet',
     desc: 'Silky, Moist & Velvety Red Velvet',
     tag: 'Crowd Pleaser',
-    image: 'https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?auto=format&fit=crop&q=80&w=600'
+    image: '/redvioletflavour.jpeg'
   },
   {
     name: 'Strawberry Bliss',
     desc: 'Soft, Moist & Delicately Sweet Strawberry',
     tag: 'Fruity & Fresh',
-    image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&q=80&w=600'
+    image: '/strawberryflavour.jpeg'
   }
 ];
 
@@ -100,7 +100,7 @@ export default function Home() {
         <Col lg={6}>
           <div className="position-relative">
             <img 
-              src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&q=80&w=900" 
+              src="/12inchesboard.jpeg" 
               alt="Artisanal Golden Cake" 
               className="img-fluid rounded-4 shadow-lg w-100"
               style={{ maxHeight: '480px', objectFit: 'cover' }}
@@ -171,7 +171,7 @@ export default function Home() {
               Have a Unique Cake Idea or Theme?
             </h2>
             <p className="text-golden-text-muted mb-4 fs-6">
-              Use our brand new <strong>Custom Order Form</strong> to choose your tiers (4" Bento to 12" Grand or 3-Tier Weddings), customize delicious sponge flavors & fillings, pick vintage piping or luxury toppers, and receive an instant quote ready for WhatsApp!
+              Use our brand new <strong>Custom Order Form</strong> to choose your tiers (4" Bento to 12" Grand or 3-Tier Weddings), customize delicious sponge flavors & fillings, luxury toppers, and receive an instant quote ready for WhatsApp!
             </p>
             <div className="d-flex flex-wrap gap-3">
               <Button as={Link} to="/custom-order" className="btn-golden rounded-pill px-4 py-2">
@@ -185,7 +185,7 @@ export default function Home() {
           <Col lg={5}>
             <div className="position-relative">
               <img 
-                src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&q=80&w=800" 
+                src="/10inchesboard.jpeg" 
                 alt="Luxury Custom Celebration Cake"
                 className="img-fluid rounded-4 shadow w-100"
                 style={{ maxHeight: '280px', objectFit: 'cover' }}

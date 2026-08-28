@@ -8,38 +8,38 @@ const SIGNATURE_FLAVORS = [
     name: 'Classic Vanilla',
     desc: 'Soft, Moist & Buttery Vanilla',
     badge: 'Timeless Classic',
-    image: 'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&q=80&w=600'
+    image: '/vanillaflavour.jpeg'
   },
   {
     name: 'Dark Chocolate',
     desc: 'Deep, Rich & Moist Chocolate',
     badge: 'Rich & Decadent',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=600'
+    image: '/chocolateflavour.jpeg'
   },
   {
     name: 'Red Velvet',
     desc: 'Silky, Moist & Velvety Red Velvet',
     badge: 'Customer Favorite',
-    image: 'https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?auto=format&fit=crop&q=80&w=600'
+    image: '/redvioletflavour.jpeg'
   },
   {
     name: 'Strawberry Bliss',
     desc: 'Soft, Moist & Delicately Sweet Strawberry',
     badge: 'Delicate & Sweet',
-    image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&q=80&w=600'
+    image: '/strawberryflavour.jpeg'
   }
 ];
 
 const CAKE_PRICING = [
-  { name: "4' inches (Bento Takeaway)", price: "₦10,000", priceNum: 10000, servings: "1 - 2 portions", tag: "Cute Bento", image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=600" },
-  { name: "4' inches (Board)", price: "₦12,000", priceNum: 12000, servings: "2 - 3 portions", tag: "Mini Board", image: "https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?auto=format&fit=crop&q=80&w=600" },
-  { name: "6 inches", price: "₦14,000", priceNum: 14000, servings: "4 - 6 portions", tag: "Popular", image: "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&q=80&w=600" },
-  { name: "7 inches", price: "₦18,000", priceNum: 18000, servings: "8 - 10 portions", tag: "Standard Party", image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&q=80&w=600" },
-  { name: "8 inches", price: "₦22,000", priceNum: 22000, servings: "12 - 15 portions", tag: "Best Seller", image: "https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&q=80&w=600" },
-  { name: "9 inches", price: "₦28,000", priceNum: 28000, servings: "18 - 22 portions", tag: "Family Celebration", image: "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&q=80&w=600" },
-  { name: "10 inches", price: "₦35,000", priceNum: 35000, servings: "25 - 30 portions", tag: "Large Gathering", image: "https://images.unsplash.com/photo-1506459225024-1428097a7e18?auto=format&fit=crop&q=80&w=600" },
-  { name: "11 inches", price: "₦42,000", priceNum: 42000, servings: "35 - 40 portions", tag: "Grand Party", image: "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&q=80&w=600" },
-  { name: "12 inches", price: "₦50,000", priceNum: 50000, servings: "45 - 50+ portions", tag: "Showstopper", image: "https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&q=80&w=600" },
+  { name: "4' inches (Bento Takeaway)", price: "₦10,000", priceNum: 10000, servings: "1 - 2 portions", tag: "Cute Bento", image: "/cake4inchestakeaway.jpeg" },
+  { name: "4' inches (Board)", price: "₦12,000", priceNum: 12000, servings: "2 - 3 portions", tag: "Mini Board", image: "/fourinchesboard.jpeg" },
+  { name: "6 inches", price: "₦14,000", priceNum: 14000, servings: "4 - 6 portions", tag: "Popular", image: "/6inchesboard.jpeg" },
+  { name: "7 inches", price: "₦18,000", priceNum: 18000, servings: "8 - 10 portions", tag: "Standard Party", image: "/7inchesboard.jpeg" },
+  { name: "8 inches", price: "₦22,000", priceNum: 22000, servings: "12 - 15 portions", tag: "Best Seller", image: "/8inchesboard.jpeg" },
+  { name: "9 inches", price: "₦28,000", priceNum: 28000, servings: "18 - 22 portions", tag: "Family Celebration", image: "/9inchesboard.jpeg" },
+  { name: "10 inches", price: "₦35,000", priceNum: 35000, servings: "25 - 30 portions", tag: "Large Gathering", image: "/10inchesboard.jpeg" },
+  { name: "11 inches", price: "₦42,000", priceNum: 42000, servings: "35 - 40 portions", tag: "Grand Party", image: "/11inchesboard.jpeg" },
+  { name: "12 inches", price: "₦50,000", priceNum: 50000, servings: "45 - 50+ portions", tag: "Showstopper", image: "/12inchesboard.jpeg" },
 ];
 
 const SMALL_CHOPS_PACKS = [
@@ -50,7 +50,7 @@ const SMALL_CHOPS_PACKS = [
     contents: "1 chops (samosa/spring roll), 5 puffpuff and 1 beef",
     badge: "Solo Pack",
     category: "Small Chops",
-    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=600"
+    image: "/smallchops.jpeg"
   },
   {
     name: "Bigger Plate",
@@ -59,7 +59,7 @@ const SMALL_CHOPS_PACKS = [
     contents: "4 chops, 10 puffpuff and 3 beef",
     badge: "Share Pack",
     category: "Small Chops",
-    image: "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&q=80&w=600"
+    image: "/bigboxofsmallchops.jpeg"
   },
   {
     name: "Big Box",
@@ -68,7 +68,7 @@ const SMALL_CHOPS_PACKS = [
     contents: "10 chops, 15 puffpuff and 8 beef",
     badge: "Party Box",
     category: "Small Chops",
-    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=600"
+    image: "/bigboxofsmallchops.jpeg"
   }
 ];
 
@@ -81,7 +81,7 @@ const PASTRIES_AND_DESSERTS = [
     minOrderNote: "Min. 4 pieces",
     minOrder: 4,
     category: "Pastries",
-    image: "https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&q=80&w=600"
+    image: "/meatpie.jpeg"
   },
   {
     name: "Chicken Pie",
@@ -91,7 +91,7 @@ const PASTRIES_AND_DESSERTS = [
     minOrderNote: "Min. 4 pieces",
     minOrder: 4,
     category: "Pastries",
-    image: "https://images.unsplash.com/photo-1608039829572-78524f79c4c7?auto=format&fit=crop&q=80&w=600"
+    image: "/meatpie.jpeg"
   },
   {
     name: "Egg Roll",
@@ -101,7 +101,7 @@ const PASTRIES_AND_DESSERTS = [
     minOrderNote: "Min. 4 pieces",
     minOrder: 4,
     category: "Pastries",
-    image: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&q=80&w=600"
+    image: "/eggroll.jpeg"
   },
   {
     name: "Milky Doughnut",
@@ -111,7 +111,7 @@ const PASTRIES_AND_DESSERTS = [
     minOrderNote: "Single Piece",
     minOrder: 1,
     category: "Pastries",
-    image: "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&q=80&w=600"
+    image: "/milkydoughnut.jpeg"
   },
   {
     name: "Milky Doughnut (Box of 3)",
@@ -121,7 +121,7 @@ const PASTRIES_AND_DESSERTS = [
     minOrderNote: "Box Pack",
     minOrder: 1,
     category: "Pastries",
-    image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&q=80&w=600"
+    image: "/milkydoughnut.jpeg"
   },
   {
     name: "Foil Cake",
@@ -131,7 +131,7 @@ const PASTRIES_AND_DESSERTS = [
     minOrderNote: "Min. 4 pieces",
     minOrder: 4,
     category: "Pastries",
-    image: "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&q=80&w=600"
+    image: "/foilcake.jpeg"
   },
   {
     name: "Cake Parfait",
@@ -141,7 +141,7 @@ const PASTRIES_AND_DESSERTS = [
     minOrderNote: "Individual Cup",
     minOrder: 1,
     category: "Desserts",
-    image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&q=80&w=600"
+    image: "/parfait.jpeg"
   }
 ];
 
@@ -239,13 +239,13 @@ export default function Menu() {
           <Col md={8}>
             <div className="d-flex align-items-center gap-2 mb-2">
               <Badge className="badge-gold-accent px-3 py-1 rounded-pill">✨ Bespoke Studio</Badge>
-              <span className="small text-muted">Multi-tier, Toppers, Inscriptions & Colors</span>
+              <span className="small text-muted">Multi-tier, Flavors, Fillings & Toppers</span>
             </div>
             <h3 className="fw-bold text-golden-dark mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
               Looking for a Fully Customized Cake?
             </h3>
             <p className="text-muted mb-0 small">
-              Use our interactive <strong>Custom Order Form</strong> to select custom tier counts, heart shapes, vintage lambeth piping, custom acrylic toppers, fresh florals, and get an instant quote ready for WhatsApp.
+              Use our interactive <strong>Custom Order Form</strong> to select custom tier counts, heart shapes, custom acrylic toppers, fresh florals, and get an instant quote ready for WhatsApp.
             </p>
           </Col>
           <Col md={4} className="text-md-end">

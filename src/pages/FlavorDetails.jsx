@@ -9,7 +9,7 @@ const FLAVOR_PROFILES = [
     description: 'Soft, Moist & Buttery Vanilla',
     notes: 'A timeless recipe made with pure rich butter and fragrant natural vanilla essence for a delicate, melt-in-the-mouth texture.',
     badge: 'Timeless Classic',
-    image: 'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&q=80&w=800',
+    image: '/vanillaflavour.jpeg',
     pairsWith: 'Ideal for all custom birthday cakes, bento boxes, wedding tiers & celebrations.'
   },
   {
@@ -17,7 +17,7 @@ const FLAVOR_PROFILES = [
     description: 'Deep, Rich & Moist Chocolate',
     notes: 'Crafted with premium dark cocoa to deliver an intensely rich, chocolatey indulgence with superior moisture in every crumb.',
     badge: 'Rich & Decadent',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=800',
+    image: '/chocolateflavour.jpeg',
     pairsWith: 'Perfect for chocolate lovers, drip cakes, and luxurious milestone events.'
   },
   {
@@ -25,7 +25,7 @@ const FLAVOR_PROFILES = [
     description: 'Silky, Moist & Velvety Red Velvet',
     notes: 'A luxurious crimson sponge with subtle cocoa undertones and an exceptionally tender, velvety crumb that dissolves deliciously.',
     badge: 'Customer Favorite',
-    image: 'https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?auto=format&fit=crop&q=80&w=800',
+    image: '/redvioletflavour.jpeg',
     pairsWith: 'Ideal for romantic celebrations, anniversaries, birthday surprises & parfaits.'
   },
   {
@@ -33,7 +33,7 @@ const FLAVOR_PROFILES = [
     description: 'Soft, Moist & Delicately Sweet Strawberry',
     notes: 'Infused with the natural sweetness and aroma of ripe strawberries, offering a refreshing and fruity berry flavor.',
     badge: 'Delicate & Sweet',
-    image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&q=80&w=800',
+    image: '/strawberryflavour.jpeg',
     pairsWith: 'Great for summer parties, baby showers, feminine themes & dessert tables.'
   }
 ];
