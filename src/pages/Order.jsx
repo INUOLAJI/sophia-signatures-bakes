@@ -9,7 +9,7 @@ const QUICK_ADD_ITEMS = [
   { name: 'Meat Pie (Min. 4 pcs)', price: '₦1,200', priceNum: 1200, minOrder: 4, category: 'Pastries' },
   { name: 'Chicken Pie (Min. 4 pcs)', price: '₦1,500', priceNum: 1500, minOrder: 4, category: 'Pastries' },
   { name: 'Milky Doughnut', price: '₦1,500', priceNum: 1500, minOrder: 1, category: 'Pastries' },
-  { name: 'Milky Doughnut (Box of 3)', price: '₦5,500', priceNum: 5500, minOrder: 1, category: 'Pastries' },
+  { name: 'Milky Doughnut (Box of 3)', price: '₦4,200', priceNum: 4200, minOrder: 1, category: 'Pastries' },
   { name: 'Cake Parfait', price: '₦4,000', priceNum: 4000, minOrder: 1, category: 'Desserts' },
   { name: 'Small Chops (Plate)', price: '₦2,500', priceNum: 2500, minOrder: 1, category: 'Small Chops' },
   { name: 'Bigger Plate', price: '₦7,500', priceNum: 7500, minOrder: 1, category: 'Small Chops' },
@@ -21,7 +21,7 @@ const FAQS = [
   { question: "What are the minimum order quantities for pastries?", answer: "Orders for individual pastries including Meat Pie, Chicken Pie, Egg Roll, and Small Chops (foil) start from a minimum of 4 pieces and above." },
   { question: "Is there a discount for bulk orders?", answer: "Yes! When ordering 10 pieces or more of pastries or treats, a special bulk discount is applied to your order." },
   { question: "Can I customize the cake design or send reference pictures?", answer: "Absolutely! Once you click 'Send Order via WhatsApp', you can share your Pinterest photos, color palettes, or topper ideas directly with Sophia's Signature Bakes in the chat." },
-  { question: "How is payment and delivery handled?", answer: "We confirm your final order total, delivery location/pickup time, and send direct account transfer details via WhatsApp (09118784051)." },
+  { question: "How is payment and delivery handled?", answer: "We confirm your final order total, delivery location/pickup time, and send direct account transfer details via WhatsApp (08133137577)." },
 ];
 
 export default function Order() {
@@ -314,7 +314,7 @@ export default function Order() {
                   </Button>
                 </motion.div>
                 <small className="text-muted text-center d-block mt-2" style={{ fontSize: '0.75rem' }}>
-                  Sends to <strong>09118784051</strong> for immediate confirmation
+                  Sends to <strong>08133137577</strong> for immediate confirmation
                 </small>
               </Form>
             </Card>
@@ -352,7 +352,7 @@ export default function Order() {
           <motion.div className="fs-1 mb-3" animate={{ rotate: [0, 15, -15, 0], scale: [1, 1.2, 1] }} transition={{ duration: 0.6, delay: 0.1 }}>💬✨</motion.div>
           <h5 className="fw-bold text-golden-dark mb-2">Thank you, {formData.name || 'valued customer'}!</h5>
           <p className="text-muted small mb-3">
-            Your full order details have been forwarded to <strong>Sophia's Signature Bakes (09118784051)</strong> on WhatsApp.
+            Your full order details have been forwarded to <strong>Sophia's Signature Bakes (08133137577)</strong> on WhatsApp.
           </p>
           <div className="p-3 bg-golden-subtle rounded-3 border border-golden text-start small text-muted mb-3">
             ✅ <strong>Your cart has been cleared.</strong><br />

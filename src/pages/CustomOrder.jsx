@@ -150,7 +150,7 @@ const PARTY_COMBOS = [
   { id: 'small_chops_plate', name: 'Small Chops (Solo Plate)', price: 2500, icon: '🥟', desc: '1 chops, 5 puff puff, 1 seasoned beef' },
   { id: 'small_chops_bigger', name: 'Small Chops (Bigger Plate)', price: 7500, icon: '🥟', desc: '4 chops, 10 puff puff, 3 seasoned beef' },
   { id: 'small_chops_box', name: 'Small Chops (Big Box)', price: 18000, icon: '📦', desc: '10 chops, 15 puff puff, 8 seasoned beef' },
-  { id: 'milky_doughnuts_3', name: 'Milky Doughnuts (Box of 3)', price: 5500, icon: '🍩', desc: '3 ultra-fluffy melt-in-mouth milky doughnuts' },
+  { id: 'milky_doughnuts_3', name: 'Milky Doughnuts (Box of 3)', price: 4200, icon: '🍩', desc: '3 ultra-fluffy melt-in-mouth milky doughnuts' },
   { id: 'cake_parfait_2', name: 'Cake Parfait Dessert Cups (2 Cups)', price: 8000, icon: '🍨', desc: '2 rich layered cake & cream dessert cups' },
 ];
 
@@ -925,7 +925,7 @@ export default function CustomOrder() {
                   <div className="small">
                     <strong className="text-golden-dark">Have an Instagram or Pinterest Cake Photo?</strong>
                     <p className="mb-0 text-muted">
-                      When you click <strong>"Send Order via WhatsApp"</strong>, your custom specs will load directly into WhatsApp (09118784051). You can attach your reference picture right inside the chat!
+                      When you click <strong>"Send Order via WhatsApp"</strong>, your custom specs will load directly into WhatsApp (08133137577). You can attach your reference picture right inside the chat!
                     </p>
                   </div>
                 </div>
@@ -1061,7 +1061,7 @@ export default function CustomOrder() {
 
                 <div className="text-center mt-3">
                   <small className="text-muted">
-                    Need instant advice? Call / Chat <strong>09118784051</strong>
+                    Need instant advice? Call / Chat <strong>08133137577</strong>
                   </small>
                 </div>
               </Card>
@@ -1095,7 +1095,7 @@ export default function CustomOrder() {
                     <strong>📸 Can I send a picture from Pinterest or Instagram?</strong>
                   </Accordion.Header>
                   <Accordion.Body className="text-muted">
-                    Yes! We love bringing your visual inspiration to life. Once you submit this form, simply attach your photos, color swatches, or invitation card in our WhatsApp chat (09118784051) and our cake artist will review the design with you.
+                    Yes! We love bringing your visual inspiration to life. Once you submit this form, simply attach your photos, color swatches, or invitation card in our WhatsApp chat (08133137577) and our cake artist will review the design with you.
                   </Accordion.Body>
                 </Accordion.Item>
 

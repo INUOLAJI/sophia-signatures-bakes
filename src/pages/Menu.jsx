@@ -35,7 +35,7 @@ const PASTRIES_AND_DESSERTS = [
   { name: "Chicken Pie", price: "₦1,500", priceNum: 1500, desc: "Golden baked pastry filled with tender shredded chicken, savory veggies & spices.", minOrderNote: "Min. 4 pieces", minOrder: 4, category: "Pastries", image: "/chickenpie.jpeg" },
   { name: "Egg Roll", price: "₦700", priceNum: 700, desc: "Crisp golden fried pastry dough wrapped around a whole seasoned boiled egg.", minOrderNote: "Min. 4 pieces", minOrder: 4, category: "Pastries", image: "/eggroll.jpeg" },
   { name: "Milky Doughnut", price: "₦1,500", priceNum: 1500, desc: "Ultra fluffy, golden fried doughnut generously coated with sweet premium powdered milk.", minOrderNote: "Single Piece", minOrder: 1, category: "Pastries", image: "/milkydoughnut.jpeg" },
-  { name: "Milky Doughnut (Box of 3)", price: "₦5,500", priceNum: 5500, desc: "Pack of 3 premium melt-in-the-mouth milky doughnuts in a gift box.", minOrderNote: "Box Pack", minOrder: 1, category: "Pastries", image: "/milkydoughnut.jpeg" },
+  { name: "Milky Doughnut (Box of 3)", price: "₦4,200", priceNum: 4200, desc: "Pack of 3 premium melt-in-the-mouth milky doughnuts in a gift box.", minOrderNote: "Box Pack", minOrder: 1, category: "Pastries", image: "/milkydoughnut.jpeg" },
   { name: "Foil Cake", price: "₦2,500", priceNum: 2500, desc: "Freshly baked, super moist individual tin cake topped with delicious glaze.", minOrderNote: "Min. 4 pieces", minOrder: 4, category: "Pastries", image: "/foilcake.jpeg" },
   { name: "Cake Parfait", price: "₦4,000", priceNum: 4000, desc: "Rich layered cup dessert with moist cake crumble, velvety cream, and assorted toppings.", minOrderNote: "Individual Cup", minOrder: 1, category: "Desserts", image: "/parfait.jpeg" },
 ];
