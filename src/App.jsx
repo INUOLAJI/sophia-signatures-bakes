@@ -152,7 +152,7 @@ export default function App() {
 
                 <motion.div variants={fadeUp} className="d-flex justify-content-center align-items-center gap-2 mb-3">
                   <span className="badge bg-golden-subtle text-golden-dark px-3 py-2 rounded-pill border border-golden">
-                    📞 WhatsApp / Call: <strong>09118784051</strong>
+                    📞 WhatsApp / Call: <strong>08012345678</strong>
                   </span>
                 </motion.div>
 
